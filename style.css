@@ -1,8 +1,87 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-.p-auto {
-    padding: auto;
-}
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: "Poetsen One", sans-serif;
+                overflow: scroll;
+                font-style: normal;
+            }
+            
+            header {
+                font-family: "Poetsen One", sans-serif;
+                font-weight: 300;
+                font-style: normal;
+                text-transform: uppercase;
+                font-size: 1.1rem;
+                letter-spacing: .1rem;
+                background-color: #789B05;
+            }
+            
+            .mr-2-c {
+                margin-right: 4px !important;
+            }
+            
+            .bg-green-c {
+                background-color: #038316;
+            }
+            
+            .box-destination-c {
+                background-color: #ffffff;
+                top: 55px;
+            }
+            
+            .arrow-bot {
+                width: 0;
+                height: 0;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 7px solid white;
+            }
+            
+            .arrow-top {
+                width: 0px;
+                margin-left: 40px;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid white;
+            }
+            
+            .arrow-top-hover {
+                width: 0px;
+                margin-left: 40px;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid #2264e0;
+                transition-duration: 0.2s;
+            }
+            
+            .arrow-nav:hover {
+                cursor: pointer;
+            }
+            
+            ul li #destinasiDetail {
+                color: black;
+                background-color: #ffffff;
+            }
+            
+            ul ul li:hover {
+                background-color: #2264e0;
+                cursor: pointer;
+                transition-duration: 0.2s;
+            }
+            
+            ul ul li:hover a {
+                color: #ffffff;
+                transition-duration: 0.2s;
+            }
+            
+            li:hover~.arrrow-top {
+                background-color: #2264e0;
+            }
+            
+            #button-login:hover {
+                background-color: #01620b;
+            }
