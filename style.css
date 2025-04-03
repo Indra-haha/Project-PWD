@@ -1,87 +1,150 @@
-            * {
-                margin: 0px;
-                padding: 0px;
-                box-sizing: border-box;
-            }
-            
-            body {
-                font-family: "Poetsen One", sans-serif;
-                overflow: scroll;
-                font-style: normal;
-            }
-            
-            header {
-                font-family: "Poetsen One", sans-serif;
-                font-weight: 300;
-                font-style: normal;
-                text-transform: uppercase;
-                font-size: 1.1rem;
-                letter-spacing: .1rem;
-                background-color: #789B05;
-            }
-            
-            .mr-2-c {
-                margin-right: 4px !important;
-            }
-            
-            .bg-green-c {
-                background-color: #038316;
-            }
-            
-            .box-destination-c {
-                background-color: #ffffff;
-                top: 55px;
-            }
-            
-            .arrow-bot {
-                width: 0;
-                height: 0;
-                border-left: 7px solid transparent;
-                border-right: 7px solid transparent;
-                border-top: 7px solid white;
-            }
-            
-            .arrow-top {
-                width: 0px;
-                margin-left: 40px;
-                border-left: 7px solid transparent;
-                border-right: 7px solid transparent;
-                border-bottom: 7px solid white;
-            }
-            
-            .arrow-top-hover {
-                width: 0px;
-                margin-left: 40px;
-                border-left: 7px solid transparent;
-                border-right: 7px solid transparent;
-                border-bottom: 7px solid #2264e0;
-                transition-duration: 0.2s;
-            }
-            
-            .arrow-nav:hover {
-                cursor: pointer;
-            }
-            
-            ul li #destinasiDetail {
-                color: black;
-                background-color: #ffffff;
-            }
-            
-            ul ul li:hover {
-                background-color: #2264e0;
-                cursor: pointer;
-                transition-duration: 0.2s;
-            }
-            
-            ul ul li:hover a {
-                color: #ffffff;
-                transition-duration: 0.2s;
-            }
-            
-            li:hover~.arrrow-top {
-                background-color: #2264e0;
-            }
-            
-            #button-login:hover {
-                background-color: #01620b;
-            }
+:root {
+    --warna-button: #ff5704;
+    --warna-box: #ffca0c;
+    --warna-text-primary: #166C0D;
+    --warna-text-secondary: #0fb515;
+    --background-bar: #e9e6e3;
+    --background-main-content: #dcd9d7;
+}
+
+.text-warna-primary {
+    color: var(--warna-text-primary);
+}
+
+.text-warna-secondary {
+    color: var(--warna-text-secondary);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.rubik-font {
+    font-family: "Rubik", sans-serif;
+}
+
+header {
+    font-weight: 700;
+    font-size: 1em;
+    z-index: 1000 !important;
+}
+
+body>div {
+    background-color: var(--background-main-content)!important;
+    overflow: hidden;
+}
+
+.mr-2-c {
+    margin-right: 4px !important;
+}
+
+.bg-bar-c {
+    background-color: var(--background-bar);
+}
+
+
+/* Panah kebawah */
+
+.arrow-bot {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid var(--warna-text-primary);
+}
+
+
+/* Panah keatas */
+
+.arrow-top {
+    width: 0px;
+    margin-left: 40px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid var(--warna-box);
+}
+
+
+/* Ketika panah keatas hover */
+
+.arrow-top-hover {
+    width: 0px;
+    margin-left: 40px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid var(--warna-button);
+    transition-duration: 0.2s;
+}
+
+.arrow-nav:hover {
+    cursor: pointer;
+}
+
+
+/* Ketika select menu utama blom di hover*/
+
+ul li a.text-uppercase {
+    color: var(--warna-text-primary);
+}
+
+ul li:hover a.text-uppercase {
+    color: var(--warna-text-secondary);
+}
+
+
+/* Ketika select menu utama di hover*/
+
+ul li:hover a.text-uppercase::before {
+    width: 100;
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--warna-button);
+}
+
+ul li:hover a.text-uppercase::after {
+    width: 100;
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--background-bar);
+}
+
+
+/* Ketika select sub menu blom di hover*/
+
+ul ul li {
+    background-color: var(--warna-box);
+}
+
+ul ul li a {
+    color: var(--warna-button);
+}
+
+
+/* Ketika select sub menu di hover*/
+
+ul ul li:hover {
+    background-color: var(--warna-button);
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+ul ul li:hover a {
+    color: var(--warna-box);
+    transition-duration: 0.2s;
+}
+
+li:hover~.arrrow-top {
+    background-color: var(--warna-box);
+}
+
+#button-login {
+    background-color: #067f13;
+}
+
+#button-login:hover {
+    background-color: #01620b;
+}

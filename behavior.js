@@ -4,10 +4,10 @@ const destinasiDetail = document.getElementById('destinasi-detail');
 const tiketBox = document.getElementById('tiket-box');
 const tiketArrow = document.getElementById('tiket-arrow');
 const tiketDetail = document.getElementById('tiket-detail');
-const arrow1 = document.getElementById('arrow1');
-const hover1 = document.querySelector('ul li:nth-child(3) li:first-child');
-const arrow2 = document.getElementById('arrow2');
-const hover2 = document.querySelector('ul li:nth-child(4) li:first-child');
+const arrowDestinasi = document.getElementById('arrow1');
+const hoverDestinasi = document.querySelector('ul li:nth-child(3) li:first-child');
+const arrowTiket = document.getElementById('arrow2');
+const hoverTiket = document.querySelector('ul li:nth-child(4) li:first-child');
 
 destinasiBox.addEventListener('mouseover', () => {
     destinasiArrow.classList.add('invisible');
@@ -29,19 +29,19 @@ tiketBox.addEventListener('mouseout', () => {
     tiketDetail.classList.remove('visible');
     tiketDetail.classList.add('invisible');
 });
-hover1.addEventListener('mouseover', () => {
-    arrow1.classList.remove('arrow-top');
-    arrow1.classList.add('arrow-top-hover');
+hoverDestinasi.addEventListener('mouseover', () => {
+    arrowDestinasi.classList.remove('arrow-top');
+    arrowDestinasi.classList.add('arrow-top-hover');
 });
-hover1.addEventListener('mouseout', () => {
-    arrow1.classList.remove('arrow-top-hover');
-    arrow1.classList.add('arrow-top');
+hoverDestinasi.addEventListener('mouseout', () => {
+    arrowDestinasi.classList.remove('arrow-top-hover');
+    arrowDestinasi.classList.add('arrow-top');
 });
-hover2.addEventListener('mouseover', () => {
-    arrow2.classList.remove('arrow-top');
-    arrow2.classList.add('arrow-top-hover');
+hoverTiket.addEventListener('mouseover', () => {
+    arrowTiket.classList.remove('arrow-top');
+    arrowTiket.classList.add('arrow-top-hover');
 });
-hover2.addEventListener('mouseout', () => {
-    arrow2.classList.remove('arrow-top-hover');
-    arrow2.classList.add('arrow-top');
+hoverTiket.addEventListener('mouseout', () => {
+    arrowTiket.classList.remove('arrow-top-hover');
+    arrowTiket.classList.add('arrow-top');
 });
