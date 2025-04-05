@@ -27,7 +27,7 @@
 
 header {
     font-weight: 700;
-    font-size: 1em;
+    font-size: 0.95em;
     z-index: 1000 !important;
 }
 
@@ -105,6 +105,25 @@ ul li:hover a.text-uppercase::before {
 }
 
 ul li:hover a.text-uppercase::after {
+    width: 100;
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--background-bar);
+}
+
+
+/* Ketika select menu utama di buka*/
+
+ul li.open a.text-uppercase::before {
+    width: 100;
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--warna-button);
+}
+
+ul li.open a.text-uppercase::after {
     width: 100;
     content: "";
     display: block;
