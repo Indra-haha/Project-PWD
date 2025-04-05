@@ -1,6 +1,6 @@
 :root {
-    --warna-button: #ff5704;
-    --warna-box: #ffca0c;
+    --warna-orange: #ff5704;
+    --warna-kuning: #ffca0c;
     --warna-text-primary: #166C0D;
     --warna-text-secondary: #0fb515;
     --background-bar: #e9e6e3;
@@ -15,6 +15,22 @@
     color: var(--warna-text-secondary);
 }
 
+.bg-kuning {
+    background-color: var(--warna-kuning);
+}
+
+.bg-orange {
+    background-color: var(--warna-orange);
+}
+
+.text-orange {
+    color: var(--warna-orange);
+}
+
+.text-kuning {
+    color: var(--warna-kuning);
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -25,14 +41,11 @@
     font-family: "Rubik", sans-serif;
 }
 
-header {
-    font-weight: 700;
-    font-size: 0.95em;
-    z-index: 1000 !important;
+.bg-content-c {
+    background-color: var(--background-main-content);
 }
 
 body>div {
-    background-color: var(--background-main-content)!important;
     overflow: hidden;
 }
 
@@ -63,7 +76,7 @@ body>div {
     margin-left: 40px;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid var(--warna-box);
+    border-bottom: 7px solid var(--warna-kuning);
 }
 
 
@@ -74,7 +87,7 @@ body>div {
     margin-left: 40px;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid var(--warna-button);
+    border-bottom: 7px solid var(--warna-orange);
     transition-duration: 0.2s;
 }
 
@@ -101,7 +114,7 @@ ul li:hover a.text-uppercase::before {
     content: "";
     display: block;
     height: 3px;
-    background-color: var(--warna-button);
+    background-color: var(--warna-kuning);
 }
 
 ul li:hover a.text-uppercase::after {
@@ -120,7 +133,7 @@ ul li.open a.text-uppercase::before {
     content: "";
     display: block;
     height: 3px;
-    background-color: var(--warna-button);
+    background-color: var(--warna-kuning);
 }
 
 ul li.open a.text-uppercase::after {
@@ -135,29 +148,75 @@ ul li.open a.text-uppercase::after {
 /* Ketika select sub menu blom di hover*/
 
 ul ul li {
-    background-color: var(--warna-box);
+    background-color: var(--warna-kuning);
 }
 
 ul ul li a {
-    color: var(--warna-button);
+    color: var(--warna-orange);
 }
 
 
 /* Ketika select sub menu di hover*/
 
 ul ul li:hover {
-    background-color: var(--warna-button);
+    background-color: var(--warna-orange);
     cursor: pointer;
     transition-duration: 0.2s;
 }
 
 ul ul li:hover a {
-    color: var(--warna-box);
+    color: var(--warna-kuning);
     transition-duration: 0.2s;
 }
 
 li:hover~.arrrow-top {
-    background-color: var(--warna-box);
+    background-color: var(--warna-kuning);
+}
+
+header {
+    z-index: 1000 !important;
+}
+
+header img {
+    width: 80px;
+}
+
+header ul:first-child {
+    font-weight: 700;
+    font-size: 0.95em;
+    visibility: visible !important;
+}
+
+footer {
+    justify-content: space-between;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+}
+
+@media (max-width: 425px) {
+    header ul:first-child {
+        font-size: 0.2em;
+        visibility: hidden !important;
+    }
+    header img {
+        width: 40px;
+    }
+    footer {
+        font-size: 0.8em;
+        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (min-width:425px) and (max-width:768px) {
+    footer div div {
+        text-align: center !important;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 #button-login {

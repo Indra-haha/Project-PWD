@@ -1,7 +1,7 @@
 <header class="bg-bar-c rubik-font position-sticky top-0 shadow">
     <div class="d-flex justify-content-between align-items-center mx-5">
-        <img src="images/logo-ibarbo.png" alt="logo" style="height:50px;width:auto;" class="m-2">
-        <div class="d-block m-0 p-0">
+        <img src="images/logo-ibarbo.png" alt="logo" class="m-2">
+        <div class="d-flex m-0 p-0">
             <ul class="nav justify-content-center align-items-center py-3 m-0">
                 <li class="mx-4">
                     <a href="index.php" class="text-decoration-none text-uppercase">Home</a>
