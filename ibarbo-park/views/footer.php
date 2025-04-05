@@ -1,6 +1,6 @@
 <footer class="bg-bar-c rubik-font text-warna-primary">
-    <h5 class="text-center p-3">Temukan Kami</h5>
-    <div class="p-3 mx-5 d-flex align-items-center">
+    <h5 class="text-center py-4">Temukan Kami</h5>
+    <div class="p-3 m-4 mx-5 d-flex align-items-center my-3">
         <div class="d-block" style="width:70%;">
             <div>
                 Lokasi : Jl. Raya Ibarbo No. 1, Ibarbo Park, Indonesia
