@@ -1,0 +1,56 @@
+<header class="bg-bar-c rubik-font position-sticky top-0 shadow">
+    <div class="d-flex justify-content-between align-items-center mx-5">
+        <img src="images/logo-ibarbo.png" alt="logo" style="height:50px;width:auto;" class="m-2">
+        <div class="d-block m-0 p-0">
+            <ul class="nav justify-content-center align-items-center py-3 m-0">
+                <li class="mx-4">
+                    <a href="index.php" class="text-decoration-none text-uppercase">Home</a>
+                </li>
+                <li class="mx-4">
+                    <a href="about.php" class="text-decoration-none text-uppercase">About</a>
+                </li>
+                <li id="destinasi-box" class="mx-3 d-flex align-items-baseline">
+                    <a href="destination.php" class="text-decoration-none text-uppercase">Destination</a>
+                    <div id="destinasi-arrow" class="mx-1 arrow-bot rounded-2"></div>
+                    <!-- menu destinasi -->
+                    <div id="destinasi-detail" class="invisible position-absolute my-4">
+                        <div id="arrow1" class="arrow-top"></div>
+                        <ul class="nav d-block p-0 m-0 box-c d-block">
+                            <li class="p-2 px-3">
+                                <a href="destination/aviary" class="text-decoration-none">AVIARY PARK</a>
+                            </li>
+                            <li class="p-2 px-3">
+                                <a href="destination/funtown" class="text-decoration-none">FUNTOWN</a>
+                            </li>
+                            <li class="p-2 px-3">
+                                <a href="destination/splashworld" class="text-decoration-none">SPLASHWORLD</a>
+                            </li>
+                            <li class="p-2 px-3">
+                                <a href="destination/souvenir" class="text-decoration-none">SOUVENIR CENTER</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="tiket-box" class="mx-3 d-flex align-items-baseline">
+                    <a href="ticket.php" class="text-decoration-none text-uppercase">Ticket</a>
+                    <div id="tiket-arrow" class="mx-1 arrow-bot rounded-2"></div>
+                    <!-- menu tiket -->
+                    <div id="tiket-detail" class="invisible position-absolute my-4">
+                        <div id="arrow2" class="arrow-top"></div>
+                        <ul class="nav d-block p-0 m-0 box-c d-block">
+                            <li class="p-2 px-3">
+                                <a href="ticket.php/individu" class="text-decoration-none">INDIVIDU</a>
+                            </li>
+                            <li class="p-2 px-3">
+                                <a href="ticket/paket" class="text-decoration-none">PAKET</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mx-3 d-flex">
+                    <a href="information.php" class="text-decoration-none text-uppercase">Information</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
