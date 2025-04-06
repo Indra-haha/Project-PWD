@@ -16,7 +16,7 @@
                     <div id="destinasi-detail" class="invisible position-absolute my-4">
                         <div id="arrow1" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
-                            <li class="p-2 px-3">
+                            <li id="sub-menu-des" class="p-2 px-3">
                                 <a href="destination/aviary" class="text-decoration-none">AVIARY PARK</a>
                             </li>
                             <li class="p-2 px-3">
@@ -38,7 +38,7 @@
                     <div id="tiket-detail" class="invisible position-absolute my-4">
                         <div id="arrow2" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
-                            <li class="p-2 px-3">
+                            <li id="sub-menu-tik" class="p-2 px-3">
                                 <a href="ticket.php/individu" class="text-decoration-none">INDIVIDU</a>
                             </li>
                             <li class="p-2 px-3">

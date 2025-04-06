@@ -5,9 +5,9 @@ const tiketBox = document.getElementById('tiket-box');
 const tiketArrow = document.getElementById('tiket-arrow');
 const tiketDetail = document.getElementById('tiket-detail');
 const arrowDestinasi = document.getElementById('arrow1');
-const hoverDestinasi = document.querySelector('ul li:nth-child(3) li:first-child');
+const hoverDestinasi = document.getElementById('sub-menu-des');
 const arrowTiket = document.getElementById('arrow2');
-const hoverTiket = document.querySelector('ul li:nth-child(4) li:first-child');
+const hoverTiket = document.getElementById('sub-menu-tik');
 
 destinasiBox.addEventListener('mouseover', () => {
     destinasiArrow.classList.add('invisible');

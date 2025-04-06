@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
+    <link rel="icon" href="images/logo-ibarbo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -46,21 +47,21 @@
         <h2 class="rubik-font p-2 mt-4 mb-2 text-center">
             Desk
         </h2>
-        <div class="m-3 mx-5 text-center text-warna-primary">
+        <div class="rubik-font m-3 mx-5 text-center text-warna-primary">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae rem accusamus dolorum debitis assumenda praesentium inventore laboriosam laudantium consequatur impedit? Quibusdam sapiente maxime non in sunt nihil alias iste ipsa.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, cumque nesciunt in repellendus porro cum iure explicabo ipsum ullam, aut a voluptatem laborum repellat quae libero ipsam, aliquid aperiam. Repellendus.
         </div>
         <h2 class="rubik-font p-0 mt-4 mb-2 text-center">
             Destination
         </h2>
-        <div class="d-flex  column-gap-5 row-gap-3 justify-content-center flex-wrap" style="width:100%;">
+        <div class="d-flex column-gap-5 row-gap-3 justify-content-center flex-wrap" style="width:100%;">
             <div class="position-relative mx-2">
-                <video width="280" height="560" controls autoplay class="rounded-5">
+                <video width="280" height="560" autoplay="" loop="" class="z-index-1">
                     <source src="videos/ibarbo-testing-video.mp4" type="video/mp4">
                 </video>
-                <div class="position-absolute z-index-5 d-block" style="top:350px;">
-                    <h4>Funtown</h4>
-                    <span>Menyenangkan</span>
+                <div class="position-absolute z-index-5 d-block text-center bg-orange rounded-3 text-light" style="top:500px;width:100%;">
+                    <h4 class="p-2">Funtown</h4>
+                    <div class="m-2">Menyenangkan</div>
                 </div>
             </div>
             <div class="position-relative mx-2">
@@ -86,18 +87,18 @@
             Promo
         </h2>
         <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3" style="width:100%;">
-            <div>
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;">
+            <div class="position-relative p-2">
+                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
                 <h4></h4>
                 <span></span>
             </div>
-            <div>
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;">
+            <div class="position-relative p-2">
+                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
                 <h4></h4>
                 <span></span>
             </div>
-            <div>
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;">
+            <div class="position-relative p-2">
+                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
                 <h4></h4>
                 <span></span>
             </div>
