@@ -204,7 +204,9 @@ body {
     footer div div div {
         text-align: center;
         justify-content: center;
-        align-items: center;
+    }
+    footer h5 {
+        text-align: center;
     }
     iframe {
         width: 100%;
