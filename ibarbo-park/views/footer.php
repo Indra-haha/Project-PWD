@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="d-block my-3">
-            <h5 class="text-warna-primary fw-bold p-0 m-0">CONTACT US</h5>
+            <h5 class="text-warna-primary fw-bold p-0 my-2">CONTACT US</h5>
             <div class="d-flex align-items-center justify-content-start my-3">
                 <a href="" class="text-decoration-none text-warna-primary"><img src="images/instagram.svg" alt="instagram"><span class="text-dark mx-2 font-15">@ibarbopark</span>
                 </a>
