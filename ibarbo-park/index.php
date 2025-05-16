@@ -21,37 +21,32 @@
 
 <body>
     <?php require('views/header.php') ?>
-    <div class="position-relative" style="height:auto; width:100%;">
-        <img src="images/ibarbo depan.jpg" alt="" style="width:100%; height:70%;" class="position-relative">
-        <div class="position-absolute top-0 start-50 translate-middle-x text-center">
-            <h1 class="rubik-font p-5 text-kuning">
-                Destination
-            </h1>
+    <div class="d-grid bg-content-c">
+        <img src="images/ibarbo depan.jpg" alt="" style="width:100%;" class="d-flex">
+        <div id="info" class="d-flex column-gap-5 row-gap-3 justify-content-center align-items-center flex-wrap" style="height:auto;width:100%;z-index:99;">
+            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
+                <h3 class="py-2">2024</h3>
+                <span class="py-3">dsadsa</span>
+            </div>
+            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
+                <h3 class="py-2">243</h3>
+                <span class="py-3">dsds</span>
+            </div>
+            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
+                <h3 class="py-2">454</h3>
+                <span class="py-3">dsds</span>
+            </div>
         </div>
-    </div>
-    <div class="position-relative d-flex column-gap-5 row-gap-3 justify-content-center align-items-center flex-wrap" style="height:auto;top:120%;width:100%;z-index:99;">
-        <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-            <h3 class="py-2">2024</h3>
-            <span class="py-3">dsadsa</span>
-        </div>
-        <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-            <h3 class="py-2">243</h3>
-            <span class="py-3">dsds</span>
-        </div>
-        <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-            <h3 class="py-2">454</h3>
-            <span class="py-3">dsds</span>
-        </div>
-    </div>
-    <div class="position-relative bg-content-c z-index-1">
-        <h2 class="rubik-font p-2 mt-4 mb-2 text-center">
+        <h2 class="rubik-font p-2 pt-5 mb-2 text-center">
             Desk
         </h2>
         <div class="rubik-font m-3 mx-5 text-center text-warna-primary">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae rem accusamus dolorum debitis assumenda praesentium inventore laboriosam laudantium consequatur impedit? Quibusdam sapiente maxime non in sunt nihil alias iste ipsa.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, cumque nesciunt in repellendus porro cum iure explicabo ipsum ullam, aut a voluptatem laborum repellat quae libero ipsam, aliquid aperiam. Repellendus.
         </div>
-        <h2 class="rubik-font p-0 mt-4 mb-2 text-center">
+    </div>
+    <div class="position-relative bg-content-c z-index-1">
+        <h2 class="rubik-font p-0 pt-4 mb-2 text-center">
             Destination
         </h2>
         <div class="d-flex column-gap-5 row-gap-3 justify-content-center flex-wrap" style="width:100%;">

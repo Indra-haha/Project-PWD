@@ -27,6 +27,7 @@
         <div id="paket">
             tiket keluarga
     </div>
+    <?php require('views/footer.php') ?>
     <script src="behavior.js "></script>
 </body>
 </html>

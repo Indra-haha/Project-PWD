@@ -21,6 +21,7 @@
     <div class="position-relative" style="height:2000px; width:100%;">
         information
     </div>
+    <?php require('views/footer.php') ?>
     <script src="behavior.js "></script>
 </body>
 </html>
