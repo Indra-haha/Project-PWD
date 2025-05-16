@@ -21,81 +21,127 @@
 
 <body>
     <?php require('views/header.php') ?>
-    <div class="d-grid bg-content-c">
-        <img src="images/ibarbo depan.jpg" alt="" style="width:100%;" class="d-flex">
-        <div id="info" class="d-flex column-gap-5 row-gap-3 justify-content-center align-items-center flex-wrap" style="height:auto;width:100%;z-index:99;">
-            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-                <h3 class="py-2">2024</h3>
-                <span class="py-3">dsadsa</span>
-            </div>
-            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-                <h3 class="py-2">243</h3>
-                <span class="py-3">dsds</span>
-            </div>
-            <div class="d-block my-3 mx-5 px-5 p-4 rounded-4 shadow bg-orange text-kuning text-center">
-                <h3 class="py-2">454</h3>
-                <span class="py-3">dsds</span>
-            </div>
-        </div>
-        <h2 class="rubik-font p-2 pt-5 mb-2 text-center">
-            Desk
+    <div class="bg-content-c rubik-font">
+        <img src="images/index.jpg" alt="" style="width:100%;" class="d-flex">
+        <h2 class="p-0 m-4 text-center text-warna-primary">
+            Welcome to Ibarbo Park
         </h2>
-        <div class="rubik-font m-3 mx-5 text-center text-warna-primary">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae rem accusamus dolorum debitis assumenda praesentium inventore laboriosam laudantium consequatur impedit? Quibusdam sapiente maxime non in sunt nihil alias iste ipsa.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, cumque nesciunt in repellendus porro cum iure explicabo ipsum ullam, aut a voluptatem laborum repellat quae libero ipsam, aliquid aperiam. Repellendus.
+        <div class="m-3 mx-5 text-center text-warna-primary">
+            Selamat datang! Kami dengan senang hati menyambut kedatangan Anda di tempat yang penuh keceriaan. Nikmati suasana segar dan beragam aktivitas seru yang kami tawarkan. Jangan lewatkan kesempatan untuk melepas penat dan menciptakan kenangan indah bersama keluarga dan teman-teman. Kami tunggu kehadiran Anda untuk merasakan sendiri keindahan dan keceriaan di taman rekreasi kami! 
         </div>
-    </div>
-    <div class="position-relative bg-content-c z-index-1">
-        <h2 class="rubik-font p-0 pt-4 mb-2 text-center">
-            Destination
+        <h2 class="p-0 m-4 text-center text-warna-primary">
+            Explore Our Destination
         </h2>
-        <div class="d-flex column-gap-5 row-gap-3 justify-content-center flex-wrap" style="width:100%;">
-            <div class="position-relative mx-2">
-                <video width="280" height="560" autoplay="" loop="" class="z-index-1">
-                    <source src="videos/ibarbo-testing-video.mp4" type="video/mp4">
-                </video>
-                <div class="position-absolute z-index-5 d-block text-center bg-orange rounded-3 text-light" style="top:500px;width:100%;">
-                    <h4 class="p-2">Funtown</h4>
-                    <div class="m-2">Menyenangkan</div>
-                </div>
+        <div class="d-flex column-gap-2 row-gap-2 mx-3 justify-content-center flex-wrap" style="width:100%;">
+            <div class="mx-2 my-1 p-0 text-center">
+                <a href="?destination=aviary" class="text-decoration-none text-warna-primary">
+                    <img src="images/aviary.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <h3 class="p-2">Aviary</h3c>
+                </a>
             </div>
-            <div class="position-relative mx-2">
-                <video width="280" height="560" controls autoplay class="rounded-5">
-                    <source src="videos/ibarbo-testing-video.mp4" type="video/mp4">
-                </video>
-                <div class="position-absolute z-index-5 d-block" style="top:350px;">
-                    <h4>Funtown</h4>
-                    <span>Menyenangkan</span>
-                </div>
+            <div class="mx-2 my-1 p-0 text-center">
+                <a href="?destination=funtown" class="text-decoration-none text-warna-primary">
+                    <img src="images/funtown.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <h3 class="p-2">Funtown</h3c>
+                </a>
             </div>
-            <div class="position-relative mx-2">
-                <video width="280" height="560" controls autoplay class="rounded-5">
-                    <source src="videos/ibarbo-testing-video.mp4" type="video/mp4">
-                </video>
-                <div class="position-absolute z-index-5 d-block" style="top:350px;">
-                    <h4>Funtown</h4>
-                    <span>Menyenangkan</span>
-                </div>
+            <div class="mx-2 my-1 p-0 text-center">
+                <a href="?destination=splashworld" class="text-decoration-none text-warna-primary">
+                    <img src="images/splashworld.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <h3 class="p-2">Splashworld</h3c>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0 text-center">
+                <a href="?destination=souvenir" class="text-decoration-none text-warna-primary">
+                    <img src="images/souvenir.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <h3 class="p-2">Souvenir</h3c>
+                </a>
             </div>
         </div>
-        <h2 class="rubik-font p-0 mt-4 mb-2 text-center">
-            Promo
+        <h2 class="p-0 mt-4 mb-2 text-center text-warna-primary">
+            On Instagram
+        </h2>
+        <div class="d-flex column-gap-2 row-gap-2 mx-3 justify-content-center flex-wrap" style="width:100%;">
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJrPpcqywfu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/1.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJl1ThdT3wa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/2.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJeodbrSPf3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/3.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJQsGSFR0IR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/4.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJog5yGSq6U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/5.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJLvblLRltQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/6.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJsazhjTq3h/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/7.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+            <div class="mx-2 my-1 p-0">
+                <a href="https://www.instagram.com/reel/DJimda5TFFW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                    <video width="280" height="560" loop="">
+                        <source src="videos/8.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+        </div>
+        <h2 class="p-0 m-4 text-center text-warna-primary">
+            Ticket
         </h2>
         <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3" style="width:100%;">
             <div class="position-relative p-2">
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
-                <h4></h4>
-                <span></span>
+                <div class="card" style="width: 18rem;">
+                    <img src="images/regular.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Regular</h5>
+                        <p class="card-text">Nikmati Aviary World dan Funtown, Serta FREE AKSES 5 SHOW </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
             <div class="position-relative p-2">
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
-                <h4></h4>
-                <span></span>
-            </div>
-            <div class="position-relative p-2">
-                <img src="images/ibarbo.jpg" alt="" style="width:280px;" class="shadow rounded-3">
-                <h4></h4>
-                <span></span>
+                <div class="card" style="width: 18rem;">
+                    <img src="images/combo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo</h5>
+                        <p class="card-text">Akses Semua wahana Aviary World,Funtown, Free Akses 5 Show, DAN FREE AKSES 13 WAHANA SERU</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

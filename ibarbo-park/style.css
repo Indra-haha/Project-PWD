@@ -8,11 +8,11 @@
 }
 
 .text-warna-primary {
-    color: var(--warna-text-primary);
+    color: var(--warna-text-primary) !important;
 }
 
 .text-warna-secondary {
-    color: var(--warna-text-secondary);
+    color: var(--warna-text-secondary) !important;
 }
 
 .bg-kuning {
@@ -63,6 +63,14 @@
 
 .bg-bar-c {
     background-color: var(--background-bar);
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.object-cover {
+    object-fit: cover;
 }
 
 

@@ -18,7 +18,7 @@
 </head>
 <body>
 <?php require('views/header.php') ?>
-    <div class="position-relative" style="height:2000px; width:100%;">
+    <div class="position-relative">
         ticket
        
         <div id="individu">

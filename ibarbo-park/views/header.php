@@ -10,23 +10,23 @@
                     <a href="about.php" class="text-decoration-none text-uppercase">About</a>
                 </li>
                 <li id="destinasi-box" class="mx-3 d-flex align-items-baseline">
-                    <a href="destination.php" class="text-decoration-none text-uppercase">Destination</a>
+                    <a href="" class="text-decoration-none text-uppercase">Destination</a>
                     <div id="destinasi-arrow" class="mx-1 arrow-bot rounded-2"></div>
                     <!-- menu destinasi -->
                     <div id="destinasi-detail" class="invisible position-absolute my-4">
                         <div id="arrow1" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
                             <li id="sub-menu-des" class="p-2 px-3">
-                                <a href="destination/aviary" class="text-decoration-none">AVIARY PARK</a>
+                                <a href="?destination=aviary" class="text-decoration-none">AVIARY PARK</a>
                             </li>
                             <li class="p-2 px-3">
-                                <a href="destination/funtown" class="text-decoration-none">FUNTOWN</a>
+                                <a href="?destination=funtown" class="text-decoration-none">FUNTOWN</a>
                             </li>
                             <li class="p-2 px-3">
-                                <a href="destination/splashworld" class="text-decoration-none">SPLASHWORLD</a>
+                                <a href="?destination=spashworld" class="text-decoration-none">SPLASHWORLD</a>
                             </li>
                             <li class="p-2 px-3">
-                                <a href="destination/souvenir" class="text-decoration-none">SOUVENIR CENTER</a>
+                                <a href="?destination=souvenir" class="text-decoration-none">SOUVENIR CENTER</a>
                             </li>
                         </ul>
                     </div>
@@ -39,16 +39,13 @@
                         <div id="arrow2" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
                             <li id="sub-menu-tik" class="p-2 px-3">
-                                <a href="ticket.php/individu" class="text-decoration-none">INDIVIDU</a>
+                                <a href="tiket?=regular" class="text-decoration-none">REGULAR</a>
                             </li>
                             <li class="p-2 px-3">
-                                <a href="ticket/paket" class="text-decoration-none">PAKET</a>
+                                <a href="tiket?=combo" class="text-decoration-none">COMBO</a>
                             </li>
                         </ul>
                     </div>
-                </li>
-                <li class="mx-3 d-flex">
-                    <a href="information.php" class="text-decoration-none text-uppercase">Information</a>
                 </li>
             </ul>
         </div>

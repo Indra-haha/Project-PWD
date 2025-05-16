@@ -20,7 +20,7 @@
 
 <body>
     <?php require('views/header.php') ?>
-    
+   
     <?php require('views/footer.php') ?>
     <script src="behavior.js "></script>
 </body>

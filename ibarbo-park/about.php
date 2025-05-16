@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +17,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
-<?php require('views/header.php') ?>
-    <div class="position-relative" style="height:2000px; width:100%;">
-        about
+    <?php require('views/header.php') ?>
+    <div class="position-relative bg-content-c" style="height:auto; width:100%;">
+        <div class="d-grid bg-content-c">
+            <img src="images/about.jpg" alt="" style="width:100%;" class="d-flex">
+        </div>
+        <div class="d-flex rubik-font p-0 mx-4 mt-3 text-justify text-warna-primary">
+            <div class="d-block py-5 mx-5" style="width:50%;border:2px solid red;overflow: hidden;" style="height:600px;">
+                <div>
+                    <img src="images/about4.jpg" alt="" style="max-width: 90%;height: auto;transform: rotate(355deg);border-radius: 50px;" class="mx-4">
+                </div>
+                <div class="d-flex flex-row justify-content-center align-items-center flex-wrap" >
+                    <img src="images/about2.jpg" alt="" style="max-width: 30%;height: 30%;transform: rotate(3deg);border-radius: 40px;" class="mx-4 position-absolute">
+                    <img src="images/about3.jpg" alt="" style="max-width: 30%;height: 30%;transform: rotate(355deg);border-radius: 40px;" class="mx-4 position-absolute">
+                </div>
+            </div>
+            <div class="py-5 mx-5 text-justify rubik-font" style="width:50%;">
+                Ibarbo Park, yang mulai beroperasi pada tahun 2022, dengan cerdas menggabungkan konsep wisata dan pusat oleh-oleh dalam satu lokasi seluas 4,3 hektar. Dengan mengusung konsep one-stop shopping, Ibarbo Park bertujuan untuk memudahkan wisatawan dalam mencari berbagai oleh-oleh khas Yogyakarta, mulai dari makanan, pakaian, hingga suvenir. Desain bangunannya yang industrial memberikan kesan modern dan berbeda.
+                <br> <br>
+                Sebagai destinasi wisata, Ibarbo Park menyuguhkan beragam atraksi menarik, termasuk aviary terbesar di Yogyakarta dengan lebih dari 100 spesies burung dan mini zoo yang memungkinkan interaksi dengan berbagai hewan. Wahana permainan anak, spot foto unik, dan zona edukasi diorama turut memperkaya pengalaman pengunjung. Pada Oktober 2024, daya tarik taman ini bertambah dengan hadirnya Kota Kartun.
+                <br> <br>
+                Fasilitas di Ibarbo Park dirancang lengkap untuk kenyamanan pengunjung, meliputi area parkir luas, toilet bersih, mushola, dan restoran berkapasitas besar. Anak-anak dapat menikmati playground yang aman, dan tersedia pula tempat teduh untuk beristirahat. Pengunjung juga dapat membeli pakan hewan untuk berinteraksi di mini zoo. Keunggulan lainnya adalah zona belanja oleh-oleh yang beragam dan lengkap, menjadikan Ibarbo Park pilihan praktis untuk berwisata dan berbelanja.
+            </div>
+        </div>
     </div>
     <?php require('views/footer.php') ?>
     <script src="behavior.js "></script>
 </body>
+
 </html>
