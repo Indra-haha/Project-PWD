@@ -29,91 +29,91 @@
         <div class="m-3 mx-5 text-center text-warna-primary">
             Selamat datang! Kami dengan senang hati menyambut kedatangan Anda di tempat yang penuh keceriaan. Nikmati suasana segar dan beragam aktivitas seru yang kami tawarkan. Jangan lewatkan kesempatan untuk melepas penat dan menciptakan kenangan indah bersama keluarga dan teman-teman. Kami tunggu kehadiran Anda untuk merasakan sendiri keindahan dan keceriaan di taman rekreasi kami! 
         </div>
-        <h2 class="p-0 m-4 text-center text-warna-primary">
+        <h2 class="p-0 m-4 pb-3 text-center text-warna-primary">
             Explore Our Destination
         </h2>
-        <div class="d-flex column-gap-2 row-gap-2 mx-3 justify-content-center flex-wrap" style="width:100%;">
-            <div class="mx-2 my-1 p-0 text-center">
+        <div class="d-flex column-gap-5 justify-content-center flex-wrap" style="width:100%;">
+            <div class="m-0 p-0 text-center position-relative">
                 <a href="?destination=aviary" class="text-decoration-none text-warna-primary">
-                    <img src="images/aviary.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <img src="images/aviary.jpg" alt="aviary" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2">Aviary</h3c>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0 text-center">
+            <div class="m-0 p-0 text-center">
                 <a href="?destination=funtown" class="text-decoration-none text-warna-primary">
-                    <img src="images/funtown.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <img src="" alt="funtown" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2">Funtown</h3c>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0 text-center">
+            <div class="m-0 p-0 text-center">
                 <a href="?destination=splashworld" class="text-decoration-none text-warna-primary">
-                    <img src="images/splashworld.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <img src="" alt="splashworld" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2">Splashworld</h3c>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0 text-center">
+            <div class="m-0 p-0 text-center">
                 <a href="?destination=souvenir" class="text-decoration-none text-warna-primary">
-                    <img src="images/souvenir.jpg" alt="" style="width:280px;height:560px;" class="d-flex">
+                    <img src="" alt="souveneir" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2">Souvenir</h3c>
                 </a>
             </div>
         </div>
-        <h2 class="p-0 mt-4 mb-2 text-center text-warna-primary">
+        <h2 class="p-0 m-4 pb-3 text-center text-warna-primary">
             On Instagram
         </h2>
-        <div class="d-flex column-gap-2 row-gap-2 mx-3 justify-content-center flex-wrap" style="width:100%;">
-            <div class="mx-2 my-1 p-0">
+        <div class="d-flex column-gap-4 row-gap-4 justify-content-center flex-wrap" style="width:100%;">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJrPpcqywfu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <video width="280" height="560" loop="">
-                        <source src="videos/1.mp4" type="video/mp4">
+                    <video width="280" height="560" class="shadow-lg">
+                        <source src="videos/1.mp4" type="video/mp4" >
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJl1ThdT3wa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/2.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJeodbrSPf3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/3.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJQsGSFR0IR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/4.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJog5yGSq6U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/5.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0 ">
                 <a href="https://www.instagram.com/reel/DJLvblLRltQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/6.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJsazhjTq3h/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/7.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
-            <div class="mx-2 my-1 p-0">
+            <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJimda5TFFW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                    <video width="280" height="560" loop="">
+                    <video width="280" height="560" class="shadow-lg">
                         <source src="videos/8.mp4" type="video/mp4">
                     </video>
                 </a>

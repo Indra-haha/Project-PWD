@@ -32,9 +32,9 @@
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
 }
 
 .rubik-font {
@@ -86,7 +86,7 @@
 
 .arrow-top {
     width: 0px;
-    margin-left: 40px;
+    margin-left: 30px !important;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid var(--warna-kuning);
@@ -97,7 +97,7 @@
 
 .arrow-top-hover {
     width: 0px;
-    margin-left: 40px;
+    margin-left: 30px !important;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid var(--warna-orange);
@@ -106,6 +106,38 @@
 
 .arrow-nav:hover {
     cursor: pointer;
+}
+
+div.about a img {
+    opacity: 1;
+}
+
+div.about a:hover img {
+    opacity: .5;
+}
+
+div.about a h3 {
+    width: 0px;
+    height: 0px;
+    top: 50px;
+}
+
+div.about a:hover h3 {
+    width: 280px;
+    height: 560px;
+    top: 0;
+    z-index: 1000;
+}
+
+video {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+div>a>video {
+    object-fit: cover;
 }
 
 
@@ -231,6 +263,14 @@ body {
     iframe {
         width: 270px !important;
         height: 150px !important;
+        border: 0;
+    }
+    video {
+        width: 240px !important;
+        border: 0;
+    }
+    img.shadow-lg {
+        width: 240px !important;
         border: 0;
     }
 }

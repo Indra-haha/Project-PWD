@@ -8,7 +8,6 @@ const arrowDestinasi = document.getElementById('arrow1');
 const hoverDestinasi = document.getElementById('sub-menu-des');
 const arrowTiket = document.getElementById('arrow2');
 const hoverTiket = document.getElementById('sub-menu-tik');
-
 destinasiBox.addEventListener('mouseover', () => {
     destinasiArrow.classList.add('invisible');
     destinasiDetail.classList.remove('invisible');
