@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Home | IBARBO</title>
     <link rel="icon" href="images/logo-ibarbo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,29 +32,33 @@
         <h2 class="p-0 m-4 pb-3 text-center text-warna-primary">
             Explore Our Destination
         </h2>
-        <div class="d-flex column-gap-5 justify-content-center flex-wrap" style="width:100%;">
+        <div class="d-flex column-gap-5 row-gap-5 justify-content-center flex-wrap" style="width:100%;">
             <div class="m-0 p-0 text-center position-relative">
-                <a href="?destination=aviary" class="text-decoration-none text-warna-primary">
+                <a href="?destination=aviary" class="d-flex text-decoration-none text-orange about rounded-circle">
                     <img src="images/aviary.jpg" alt="aviary" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2">Aviary</h3c>
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Aviary</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
-            <div class="m-0 p-0 text-center">
-                <a href="?destination=funtown" class="text-decoration-none text-warna-primary">
-                    <img src="" alt="funtown" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2">Funtown</h3c>
+            <div class="m-0 p-0 text-center position-relative">
+                <a href="?destination=funtown" class="d-flex text-decoration-none text-orange about rounded-circle">
+                    <img src="images/funtown.jpg" alt="funtown" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Funtown</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
-            <div class="m-0 p-0 text-center">
-                <a href="?destination=splashworld" class="text-decoration-none text-warna-primary">
-                    <img src="" alt="splashworld" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2">Splashworld</h3c>
+            <div class="m-0 p-0 text-center position-relative">
+                <a href="?destination=splashwolrd" class="d-flex text-decoration-none text-orange about rounded-circle">
+                    <img src="images/splashworld.jpg" alt="splashworld" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Splashworld</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
-            <div class="m-0 p-0 text-center">
-                <a href="?destination=souvenir" class="text-decoration-none text-warna-primary">
-                    <img src="" alt="souveneir" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2">Souvenir</h3c>
+            <div class="m-0 p-0 text-center position-relative">
+                <a href="?destination=splashwolrd" class="d-flex text-decoration-none text-orange about rounded-circle">
+                    <img src="images/souvenir.jpg" alt="souvenir" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Souvenir</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
         </div>

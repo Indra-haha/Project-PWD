@@ -1,10 +1,14 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket | IBARBO</title>
+    <title>Login | IBARBO</title>
     <link rel="icon" href="images/logo-ibarbo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,12 +24,22 @@
 </head>
 
 <body>
-    <?php require('views/header.php') ?>
-    <div class="d-flex justify-content-center align-items-center rubik-font bg-content-c" style="height:auto;">
-        <img src="images/postertiket.jpg" alt="" style="width:500px;" class="my-5">
+    <div class="d-flex justify-content-center align-items-center my-5">
+    <form action="php/process_register.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required placeholder="Enter your username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required placeholder="Enter your password">
+        <br><br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required placeholder="Enter your confirm password">
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+    <p>Sudah punya Akun?</p>
+    <a href="loginUser.php"><button>Login</button></a>
     </div>
-    <?php require('views/footer.php') ?>
-    <script src="behavior.js "></script>
 </body>
 
 </html>

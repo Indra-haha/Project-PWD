@@ -1,8 +1,8 @@
-<header class="bg-bar-c rubik-font position-sticky top-0 shadow">
-    <div class="d-flex justify-content-between align-items-center mx-5">
+<header class="d-flex bg-bar-c rubik-font position-sticky top-0 shadow-lg">
+    <div class="d-flex justify-content-between align-items-center mx-5 font-20" style="width: 85%;">
         <img src="images/logo-ibarbo.png" alt="logo" class="m-2">
         <div class="d-flex m-0 p-0">
-            <ul class="nav justify-content-center align-items-center py-3 m-0">
+            <ul class="nav justify-content-center align-items-center py-2 m-0">
                 <li class="mx-4">
                     <a href="index.php" class="text-decoration-none text-uppercase">Home</a>
                 </li>
@@ -10,7 +10,7 @@
                     <a href="about.php" class="text-decoration-none text-uppercase">About</a>
                 </li>
                 <li id="destinasi-box" class="mx-3 d-flex align-items-baseline">
-                    <a href="" class="text-decoration-none text-uppercase">Destination</a>
+                    <a href="destination.php" class="text-decoration-none text-uppercase">Destination</a>
                     <div id="destinasi-arrow" class="mx-1 arrow-bot rounded-2"></div>
                     <!-- menu destinasi -->
                     <div id="destinasi-detail" class="invisible position-absolute my-4">
@@ -50,4 +50,5 @@
             </ul>
         </div>
     </div>
+    <a href="loginUser.php" class="bg-kuning px-3 p-3 m-0 font-20 border-0 text-uppercase text-center text-decoration-none text-orange rubik-font" style="font-weight: 700;width:15%;">Login</a>
 </header>

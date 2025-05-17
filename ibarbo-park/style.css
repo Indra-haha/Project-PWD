@@ -140,6 +140,36 @@ div>a>video {
     object-fit: cover;
 }
 
+a img {
+    opacity: 1 !important;
+    transition: all 0.2s ease !important;
+}
+
+a:hover img {
+    opacity: 0.3 !important;
+    transition: all 0.2s ease !important;
+}
+
+a.about:hover>h3:nth-child(2) {
+    opacity: 1 !important;
+    transition: all 0.2s ease !important;
+}
+
+a.about>h3:nth-child(2) {
+    opacity: 0 !important;
+    transition: all 0.2s ease !important;
+}
+
+a.about:hover>p:nth-child(3) {
+    opacity: 1 !important;
+    transition: all 0.8s ease !important;
+}
+
+a.about>p:nth-child(3) {
+    opacity: 0 !important;
+    transition: all 0.2s ease !important;
+}
+
 
 /* Ketika select menu utama blom di hover*/
 
