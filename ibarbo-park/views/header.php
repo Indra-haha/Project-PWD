@@ -10,7 +10,7 @@
                     <a href="about.php" class="text-decoration-none text-uppercase">About</a>
                 </li>
                 <li id="destinasi-box" class="mx-3 d-flex align-items-baseline">
-                    <a href="destination.php" class="text-decoration-none text-uppercase">Destination</a>
+                    <a href="destination.php?destinasi=semua" class="text-decoration-none text-uppercase">Destination</a>
                     <div id="destinasi-arrow" class="mx-1 arrow-bot rounded-2"></div>
                     <!-- menu destinasi -->
                     <div id="destinasi-detail" class="invisible position-absolute my-4">

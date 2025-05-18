@@ -20,48 +20,71 @@
 </head>
 
 <body>
-    <?php require('views/header.php') ?>
+    <?php require('views/header.php');
+    require_once('../server/koneksi.php');
+    $pilUmum = $_GET['destinasi'];
+    if ($pilUmum == 'semua') {
+        $queryUmum = "SELECT kode, nama, deskripsi FROM desdes";
+        $resultUmum = mysqli_query($connect, $queryUmum);
+        $result = mysqli_fetch_all($resultUmum, MYSQLI_ASSOC);
+        foreach ($result as $key => $value) {
+            echo "Kunci: " . $key . "<br>";
+            echo "Nilai: ";
+          
+            if (is_array($value)) {
+              echo "Array<br>";
+              foreach ($value as $key_array => $value_array) {
+                if ($value_array % 2 == 1){
+                    echo "Kiri <br>";
+                }
+                //   echo "   Kunci: " . $key_array . ", Nilai: " . $value_array . "<br>";
+              }
+            } elseif (is_bool($value)) {
+            //   echo ($value ? "true" : "false") . "<br>";
+            } else {
+            //   echo $value . "<br>";
+            }
+          }
+    }
+    ?>
     <div class="bg-content-c d-flex flex-wrap text-warna-primary" style="width:100%;">
-        <!-- <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
-            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
-        </div>
-        <div class="d-block justify-content-center align-items-center" style="width:50%;">
-            <div class="d-block justify-content-center align-items-center px-5 py-5">
-                <h4 class="d-flex justify-content-center align-items-center px-5 py-4">
-                    lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h4>
-                <p class="d-flex justify-content-center align-items-center px-5 py-2">Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus</p>
-                <a href="" class="d-flex align-items-center px-5 py-4 text-decoration-none text-warna-primary">Baca Selengkapnya</a>
-            </div>
-        </div>
-        
-        <div class="d-block justify-content-center align-items-center" style="width:50%;">
-            <div class="d-block justify-content-center align-items-center px-5 py-5">
-                <h4 class="d-flex justify-content-center align-items-center px-5 py-4">
-                    lorem ipsum dolor sit amet consectetur adipisicing elit. .
-                </h4>
-                <p class="d-flex justify-content-center align-items-center px-5 py-2">Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus</p>
-                <a href="" class="d-flex align-items-center px-5 py-4 text-decoration-none text-warna-primary">Baca Selengkapnya</a>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
-            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(4deg)" class="shadow-lg rounded-4">
-        </div> -->
-        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
-                <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
-            </div>
-            <div class="d-block justify-content-center align-items-center" style="width:50%;">
-                <div class="d-block justify-content-center align-items-center px-5 py-5">
-                    <h4 class="d-flex justify-content-center align-items-center px-5 py-4">
-                        lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </h4>
-                    <p class="d-flex justify-content-center align-items-center px-5 py-2">Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus</p>
-                    <a href="" class="d-flex align-items-center px-5 py-4 text-decoration-none text-warna-primary">Baca Selengkapnya</a>
-                </div>
-            </div>
-    </div>
-    <?php require('views/footer.php') ?>
-    <script src="behavior.js "></script>
+                        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
+                            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
+                        </div>
+                        <div class="d-block justify-content-center align-items-center" style="width:50%;">
+                            <div class="d-block justify-content-center align-items-center px-5 py-5">
+                                <h4 class="d-flex justify-content-center align-items-center px-5 py-3">
+                                    <?= $value['nama'] ?>
+                                </h4>
+                                <p class="d-flex justify-content-center align-items-center px-5 py-5"><?= $value['deskripsi'] ?></p>
+                                <div class="px-4">
+                                    <input type="checkbox" class="btn-check" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="btn btn-outline-primary px-3 py-3 bg-orange text-kuning rounded-3 font-16" for="flexCheckDefault">
+                                        Selengkapnya
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-block justify-content-center align-items-center" style="width:50%;">
+                        <div class="d-block justify-content-center align-items-center px-5 py-5">
+                            <h4 class="d-flex justify-content-center align-items-center px-5 py-3">
+                                lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </h4>
+                            <p class="d-flex justify-content-center align-items-center px-5 py-5">Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus</p>
+                            <div class="px-4">
+                                <input type="checkbox" class="btn-check" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="btn btn-outline-primary px-3 py-3 bg-orange text-kuning rounded-3 font-16" for="flexCheckDefault">
+                                    Selengkapnya
+                                </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
+                            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
+                        </div>
+                        </div>                    
+                        <?php require('views/footer.php') ?>
+                        <script src="behavior.js "></script>
 </body>
 
 </html>
