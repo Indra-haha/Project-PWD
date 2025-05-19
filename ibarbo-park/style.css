@@ -38,7 +38,7 @@
 }
 
 .rubik-font {
-    font-family: "Rubik", sans-serif;
+    font-family: "Rubik", sans-serif !important;
 }
 
 .font-20 {
@@ -90,6 +90,10 @@
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-bottom: 7px solid var(--warna-kuning);
+}
+
+.z-index-99 {
+    z-index: 999999 !important;
 }
 
 
@@ -153,21 +157,25 @@ a:hover img {
 a.about:hover>h3:nth-child(2) {
     opacity: 1 !important;
     transition: all 0.2s ease !important;
+    z-index: 1 !important;
 }
 
 a.about>h3:nth-child(2) {
     opacity: 0 !important;
     transition: all 0.2s ease !important;
+    z-index: 1 !important;
 }
 
 a.about:hover>p:nth-child(3) {
     opacity: 1 !important;
     transition: all 0.8s ease !important;
+    z-index: 1 !important;
 }
 
 a.about>p:nth-child(3) {
     opacity: 0 !important;
     transition: all 0.2s ease !important;
+    z-index: 1 !important;
 }
 
 
@@ -200,11 +208,11 @@ ul li:hover a.text-uppercase::after {
     background-color: var(--background-bar);
 }
 
-footer a span {
+div.footer a span {
     color: black;
 }
 
-footer a:hover span {
+div.footer a:hover span {
     color: var(--warna-text-secondary);
 }
 
@@ -252,15 +260,15 @@ ul ul li:hover a {
     transition-duration: 0.2s;
 }
 
-header {
+div.header {
     z-index: 1000 !important;
 }
 
-header img {
+div.header img {
     width: 80px;
 }
 
-header ul:first-child {
+div.header ul:first-child {
     font-weight: 700;
     font-size: 0.95em;
     visibility: visible !important;
@@ -277,14 +285,14 @@ body {
         font-size: 0.2em;
         visibility: hidden !important;
     }
-    header img {
+    div.header img {
         width: 50px;
     }
-    footer div div div {
+    div.footer div div div {
         text-align: center;
         justify-content: center;
     }
-    footer h5 {
+    div.footer h5 {
         text-align: center;
     }
     #info {

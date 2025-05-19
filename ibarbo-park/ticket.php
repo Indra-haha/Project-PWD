@@ -20,11 +20,11 @@
 </head>
 
 <body>
-    <?php require('views/header.php') ?>
+    <?php require('views/top-bar.html') ?>
     <div class="d-flex justify-content-center align-items-center rubik-font bg-content-c" style="height:auto;">
         <img src="images/postertiket.jpg" alt="" style="width:500px;" class="my-5">
     </div>
-    <?php require('views/footer.php') ?>
+    <?php require('views/bottom-bar.html') ?>
     <script src="behavior.js "></script>
 </body>
 

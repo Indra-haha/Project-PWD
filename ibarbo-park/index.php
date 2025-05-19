@@ -20,16 +20,16 @@
 </head>
 
 <body>
-    <?php require('views/header.php') ?>
-    <div class="bg-content-c rubik-font">
+    <?php require('views/top-bar.html') ?>
+    <div class="bg-content-c rubik-font" style="height:auto; top:60px;">
         <img src="images/index.jpg" alt="" style="width:100%;" class="d-flex">
-        <h2 class="p-0 m-4 text-center text-warna-primary">
+        <h2 class="p-0 m-4 mt-5 text-center text-warna-primary">
             Welcome to Ibarbo Park
         </h2>
         <div class="m-3 mx-5 text-center text-warna-primary">
-            Selamat datang! Kami dengan senang hati menyambut kedatangan Anda di tempat yang penuh keceriaan. Nikmati suasana segar dan beragam aktivitas seru yang kami tawarkan. Jangan lewatkan kesempatan untuk melepas penat dan menciptakan kenangan indah bersama keluarga dan teman-teman. Kami tunggu kehadiran Anda untuk merasakan sendiri keindahan dan keceriaan di taman rekreasi kami! 
+            Selamat datang! Kami dengan senang hati menyambut kedatangan Anda di tempat yang penuh keceriaan. Nikmati suasana segar dan beragam aktivitas seru yang kami tawarkan. Jangan lewatkan kesempatan untuk melepas penat dan menciptakan kenangan indah bersama keluarga dan teman-teman. Kami tunggu kehadiran Anda untuk merasakan sendiri keindahan dan keceriaan di taman rekreasi kami!
         </div>
-        <h2 class="p-0 m-4 pb-3 text-center text-warna-primary">
+        <h2 class="p-0 m-4 mt-5 pb-3 text-center text-warna-primary">
             Explore Our Destination
         </h2>
         <div class="d-flex column-gap-5 row-gap-5 justify-content-center flex-wrap" style="width:100%;">
@@ -62,14 +62,14 @@
                 </a>
             </div>
         </div>
-        <h2 class="p-0 m-4 pb-3 text-center text-warna-primary">
+        <h2 class="p-0 m-4 mt-5 pb-3 text-center text-warna-primary">
             On Instagram
         </h2>
         <div class="d-flex column-gap-4 row-gap-4 justify-content-center flex-wrap" style="width:100%;">
             <div class="m-0 p-0">
                 <a href="https://www.instagram.com/reel/DJrPpcqywfu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                     <video width="280" height="560" class="shadow-lg">
-                        <source src="videos/1.mp4" type="video/mp4" >
+                        <source src="videos/1.mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
@@ -123,33 +123,27 @@
                 </a>
             </div>
         </div>
-        <h2 class="p-0 m-4 text-center text-warna-primary">
-            Ticket
+        <h2 class="p-0 m-4 mt-5 text-center text-warna-primary">
+            Get Me Now
         </h2>
         <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3" style="width:100%;">
-            <div class="position-relative p-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/regular.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Regular</h5>
-                        <p class="card-text">Nikmati Aviary World dan Funtown, Serta FREE AKSES 5 SHOW </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+            <div class="mb-5 p-0 text-center position-relative">
+                <a href="ticket.php" class="d-flex text-decoration-none text-orange about rounded-5">
+                    <img src="images/tiketRegular.jpg" alt="tiket-regular" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;">Reguler</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
+                </a>
             </div>
-            <div class="position-relative p-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/combo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Combo</h5>
-                        <p class="card-text">Akses Semua wahana Aviary World,Funtown, Free Akses 5 Show, DAN FREE AKSES 13 WAHANA SERU</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+            <div class="mb-5 p-0 text-center position-relative">
+                <a href="ticket.php" class="d-flex text-decoration-none text-orange about rounded-5">
+                    <img src="images/TikatCombo.jpg" alt="tiket-combo" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
+                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;">Combo</h3>
+                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
+                </a>
             </div>
         </div>
     </div>
-    <?php require('views/footer.php') ?>
+    <?php require('views/bottom-bar.html') ?>
     <script src="behavior.js "></script>
 </body>
 

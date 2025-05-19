@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <?php require('views/header.php') ?>
+    <?php require('views/top-bar.html') ?>
     <div class="position-relative bg-content-c" style="height:auto; width:100%;">
         <div class="d-grid bg-content-c">
             <img src="images/about.jpg" alt="" style="width:100%;" class="d-flex">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <?php require('views/footer.php') ?>
+    <?php require('views/bottom-bar.html') ?>
     <script src="behavior.js "></script>
 </body>
 

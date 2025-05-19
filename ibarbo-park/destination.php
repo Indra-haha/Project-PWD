@@ -20,71 +20,96 @@
 </head>
 
 <body>
-    <?php require('views/header.php');
+    <?php require('views/top-bar.html');
     require_once('../server/koneksi.php');
     $pilUmum = $_GET['destinasi'];
     if ($pilUmum == 'semua') {
-        $queryUmum = "SELECT kode, nama, deskripsi FROM desdes";
+        $queryUmum = "SELECT * FROM desdes";
         $resultUmum = mysqli_query($connect, $queryUmum);
         $result = mysqli_fetch_all($resultUmum, MYSQLI_ASSOC);
-        foreach ($result as $key => $value) {
-            echo "Kunci: " . $key . "<br>";
-            echo "Nilai: ";
-          
-            if (is_array($value)) {
-              echo "Array<br>";
-              foreach ($value as $key_array => $value_array) {
-                if ($value_array % 2 == 1){
-                    echo "Kiri <br>";
-                }
-                //   echo "   Kunci: " . $key_array . ", Nilai: " . $value_array . "<br>";
-              }
-            } elseif (is_bool($value)) {
-            //   echo ($value ? "true" : "false") . "<br>";
-            } else {
-            //   echo $value . "<br>";
-            }
-          }
-    }
-    ?>
-    <div class="bg-content-c d-flex flex-wrap text-warna-primary" style="width:100%;">
-                        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
-                            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
-                        </div>
-                        <div class="d-block justify-content-center align-items-center" style="width:50%;">
-                            <div class="d-block justify-content-center align-items-center px-5 py-5">
-                                <h4 class="d-flex justify-content-center align-items-center px-5 py-3">
-                                    <?= $value['nama'] ?>
-                                </h4>
-                                <p class="d-flex justify-content-center align-items-center px-5 py-5"><?= $value['deskripsi'] ?></p>
-                                <div class="px-4">
-                                    <input type="checkbox" class="btn-check" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="btn btn-outline-primary px-3 py-3 bg-orange text-kuning rounded-3 font-16" for="flexCheckDefault">
-                                        Selengkapnya
-                                    </label>
-                                </div>
+        $hitung = 0; ?>
+        <div class="bg-content-c d-flex flex-wrap rubik-font " style="width:100%;">
+            <div class="d-flex my-5 column-gap-5 row-gap-0 justify-content-center flex-wrap" style="width:100%;">
+                <?php
+                foreach ($result as $key => $value) {
+                    $hitung++;
+                    $image_data = $value['gambar'];  // Assuming 'gambar' is the binary data
+                    $image_type = "image/jpeg";
+                    $queryDetail = "SELECT * FROM gamdes g 
+                            JOIN desdes d ON g.kode = d.kode 
+                            WHERE g.kode = {$value['kode']}";
+                    $resultDetail = mysqli_query($connect, $queryDetail);
+                    $result2 = mysqli_fetch_all($resultDetail, MYSQLI_ASSOC);
+                    if ($hitung % 2 == 1) {
+                ?>
+                        <div class="mx-0 py-3 text-center position-relative d-flex">
+                            <div class="py-2" style="width:50%;">
+                                <img src="data:image/jpeg;base64,<?php echo base64_encode($image_data); ?>" alt="" style="width:65%;transform:rotate(358deg)" class="shadow-lg rounded-4">
                             </div>
-                        </div>
-                        <div class="d-block justify-content-center align-items-center" style="width:50%;">
-                        <div class="d-block justify-content-center align-items-center px-5 py-5">
-                            <h4 class="d-flex justify-content-center align-items-center px-5 py-3">
-                                lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </h4>
-                            <p class="d-flex justify-content-center align-items-center px-5 py-5">Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus</p>
-                            <div class="px-4">
-                                <input type="checkbox" class="btn-check" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="btn btn-outline-primary px-3 py-3 bg-orange text-kuning rounded-3 font-16" for="flexCheckDefault">
+                            <div class="d-block justify-content-center align-items-center pt-3" style="width:50%;">
+                                <h2 class="align-items-center px-5 pt-1 pb-2 text-warna-primary text-start"><?= htmlspecialchars($value['nama']) ?></h2>
+                                <h5 class="d-flex align-items-center px-5 py-3 pb-5 mb-2 text-warna-secondary text-start"><?= htmlspecialchars($value['deskripsi']) ?></h5>
+                                <input class="form-check-input invisible" type="checkbox" value="<?php echo $value['kode'] ?>" id="<?php echo $value['nama'] ?>" name="<?php echo $value['nama'] ?>">
+                                <label class="form-check-label btn btn-outline-success px-4 py-3 bg-orange text-kuning rounded-3 font-16" for="<?php echo $value['nama'] ?>">
                                     Selengkapnya
                                 </label>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3 my-3">
+                            <?php
+                            foreach ($result2 as $key2 => $value2) {
+                                $image_data_detail = $value2['gambarDetail']; // Assuming 'gambar' is the binary data
+                                $image_type_detail = "image/jpeg";
+                            ?>
+
+                                <div class="flex-column mb-5 p-0 text-center detail d-flex text-orange about rounded-5">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($image_data_detail); ?>" alt="detail" style="width:auto;height:200px;" class="rounded-5 shadow-lg">
+                                    <h4 class="d-flex p-2 justify-content-center align-items-center" style="width:100%;height:auto;"><?= htmlspecialchars($value2['detail']) ?></h4>
+                                </div>
+
+                            <?php
+                            }
+                        } else {
+                            ?>
                         </div>
-                        <div class="d-flex justify-content-center align-items-center p-5" style="width:50%;">
-                            <img src="images/about.jpg" alt="" style="width:75%;transform:rotate(356deg)" class="shadow-lg rounded-4">
+                        <div class="mx-0 py-3 text-center position-relative d-flex">
+                            <div class="d-block justify-content-center align-items-center pt-3" style="width:50%;">
+                                <h2 class="align-items-center px-5 pt-1 pb-2 text-warna-primary text-end"><?= htmlspecialchars($value['nama']) ?></h2>
+                                <h5 class="d-flex align-items-center px-5 py-3 pb-5 mb-2 text-warna-secondary text-end"><?= htmlspecialchars($value['deskripsi']) ?></h5>
+                                <input class="form-check-input invisible" type="checkbox" value="true" id="<?php echo $value['nama'] ?>" name="<?php echo $value['nama'] ?>">
+                                <label class="form-check-label btn btn-outline-success px-4 py-3 bg-orange text-kuning rounded-3 font-16" for="<?php echo $value['nama'] ?>">
+                                    Selengkapnya
+                                </label>
+                            </div>
+                            <div class="py-4" style="width:50%;">
+                                <img src="data:image/jpeg;base64,<?php echo base64_encode($image_data); ?>" alt="" style="width:65%;transform:rotate(2deg)" class="shadow-lg rounded-4">
+                            </div>
                         </div>
-                        </div>                    
-                        <?php require('views/footer.php') ?>
-                        <script src="behavior.js "></script>
+                        <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3 my-3">
+                            <?php
+                            foreach ($result2 as $key2 => $value2) {
+                                $image_data_detail = $value2['gambarDetail']; // Assuming 'gambar' is the binary data
+                                $image_type_detail = "image/jpeg";
+                            ?>
+
+                                <div class="flex-column mb-5 p-0 text-center detail d-flex text-orange about rounded-5">
+                                    <img src="data:image/jpeg;base64,<?php echo base64_encode($image_data_detail); ?>" alt="detail" style="width:auto;height:200px;" class="rounded-5 shadow-lg">
+                                    <h4 class="d-flex p-2 justify-content-center align-items-center" style="width:100%;height:auto;"><?= htmlspecialchars($value2['detail']) ?></h4>
+                                </div>
+
+                    <?php
+                            }
+                        }
+                    } ?>
+                        </div>
+            </div>
+        </div>
+    <?php
+    } ?>
+
+    <?php require('views/bottom-bar.html') ?>
+
+    <script src="behavior.js "></script>
 </body>
 
 </html>
