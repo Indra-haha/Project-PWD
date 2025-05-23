@@ -1,10 +1,12 @@
 :root {
     --warna-orange: #ff5704;
-    --warna-kuning: #ffca0c;
+    --warna-kuning: #ffbe0c;
     --warna-text-primary: #166C0D;
     --warna-text-secondary: #0fb515;
     --background-bar: #e9e6e3;
     --background-main-content: #dcd9d7;
+    --background-main-old-green: #106307;
+    --background-main-young-green: #09be0f;
 }
 
 .text-warna-primary {
@@ -21,6 +23,14 @@
 
 .bg-orange {
     background-color: var(--warna-orange);
+}
+
+.bg-old-green {
+    background-color: var(--background-main-old-green);
+}
+
+.bg-young-green {
+    background-color: var(--background-main-young-green);
 }
 
 .text-orange {
@@ -187,6 +197,53 @@ ul li a.text-uppercase {
 
 ul li:hover a.text-uppercase {
     color: var(--warna-text-secondary);
+}
+
+button.login:hover {
+    background-color: var(--warna-kuning);
+    color: var(--warna-orange);
+    transition-duration: 0.2s;
+}
+
+button.login {
+    background-color: var(--warna-orange);
+    color: var(--warna-kuning);
+    transition-duration: 0.2s;
+}
+
+a.login {
+    background-color: var(--background-main-old-green);
+    color: var(--background-main-young-green);
+    transition-duration: 0.2s;
+}
+
+a.login:hover {
+    background-color: var(--background-main-young-green);
+    color: var(--background-main-old-green);
+    transition-duration: 0.2s;
+}
+
+a.admin {
+    background-color: var(--warna-orange);
+    color: var(--warna-kuning);
+    transition-duration: 0.2s;
+}
+
+a.admin:hover {
+    background-color: var(--warna-kuning);
+    color: var(--warna-orange);
+    transition-duration: 0.2s;
+}
+
+div.login {
+    background-image: url("../ibarbo-park/images/about.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    filter: blur(5px);
 }
 
 

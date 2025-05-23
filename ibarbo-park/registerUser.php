@@ -1,6 +1,9 @@
-<?php
+<?php 
 session_start();
-
+if (isset($_SESSION['login'])) {
+    header('Location: ../server/admin.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,20 +28,26 @@ session_start();
 
 <body>
     <div class="d-flex justify-content-center align-items-center my-5">
-    <form action="php/process_register.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required placeholder="Enter your username">
-        <br><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required placeholder="Enter your password">
-        <br><br>
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" name="confirm_password" id="confirm_password" required placeholder="Enter your confirm password">
-        <br><br>
-        <button type="submit">Register</button>
-    </form>
-    <p>Sudah punya Akun?</p>
-    <a href="loginUser.php"><button>Login</button></a>
+        <form action="../server/process_regis.php" method="POST">
+            <label for="nama">Nama:</label>
+            <input type="text" name="nama" id="nama_user" required placeholder="Enter your name">
+            <br><br>
+            <label for="nomor_hp">No HP:</label>
+            <input type="tel" name="nomor_hp" id="nama_user" required placeholder="Enter your telephone number">
+            <br><br>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required placeholder="Enter your username">
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required placeholder="Enter your password">
+            <br><br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required placeholder="Enter your confirm password">
+            <br><br>
+            <button type="submit">Register</button>
+        </form>
+        <p>Sudah punya Akun?</p>
+        <a href="loginUser.php"><button>Login</button></a>
     </div>
 </body>
 

@@ -1,6 +1,9 @@
-<?php
+<?php 
 session_start();
-
+if (isset($_SESSION['login'])) {
+    header('Location: ../server/admin.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,25 +27,42 @@ session_start();
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center login" style="width:100%;">
-        <div class="d-block my-5 justify-content-center align-items-center z" style="width:320px;">
-            <form action="../server/process_login.php" method="POST">
-                <div class="d-block justify-content-center align-items-center">
-                    <img src="images/logo-ibarbo.png" alt="" style="width:100px;" class="my-5">
-                    <input type="text" name="username" id="username" class="form-control" required placeholder="Username">
-                    <br>
-                    <input type="password" name="password" class="form-control" id="password" required placeholder="Password">
-                    <br>
-                    <label for="remember">Remember Me</label>
-                    <input type="checkbox" name="remember" id="remember">
+    <div class="login position-absolute"></div>
+    <div class="position-relative d-flex justify-content-center align-items-center p-0 m-0 rubik-font" style="width:100%;height:100vh;">
+        <div class="d-block justify-content-center align-items-center px-4 py-4 rounded-3 bg-content-c" style="width:320px;">
+            <form action="../server/process_login.php" method="POST" class="mb-2">
+                <div class="d-block justify-content-center align-items-center p-2">
+                    <div class="justify-content-center align-items-center d-flex mb-0" style="width:100%;">
+                        <img src="images/logo-ibarbo.png" alt="" style="width:80px;" class="justify-content-center d-block mx-2">
+                        <h4 class="text-center text-warna-primary align-items-center mx-2 d-block" style="width:100%;">Log In</h2>
+                    </div>
+                    <div class="d-flex mt-2 mb-4 justify-content-center text-center" style="width:100%;">
+                        Login using your account
+                    </div>
+                    <div class="justify-content-center align-items-center d-block my-1" style="width:100%;">
+                        <label for="username" class="mb-2">Username :</label>
+                        <input type="text" name="username" id="username" class="form-control justify-content-center" required>
+                    </div>
+                    <div class="justify-content-center align-items-center d-block my-2" style="width:100%;">
+                        <label for="password" class="mb-2">Password :</label>
+                        <input type="password" name="password" class="form-control justify-content-center" id="password" required>
+                    </div>
+                    <div class="justify-content-center align-items-center d-flex" style="width:100%;">
+                        <label for="remember" class="mx-3">Remember Me</label>
+                        <input type="checkbox" name="remember" id="remember">
+                    </div>
+
                 </div>
-                <div>
-                    <button type="submit">Login</button>
-                    <p>Belum punya Akun?</p>
-                    <a href="registerUser.php"><button>Registrasi</button>
-                    </a>
+                <div class="justify-content-center align-items-center d-flex my-1 rounded-2" style="width:100%;">
+                    <button type="submit" class="login py-1 d-block rounded-2 border border-0 fw-bold" style="width:100%;">LOGIN</button>
                 </div>
             </form>
+            <div class="justify-content-center align-items-center d-flex" style="width:100%;">
+                <p class="mx-2 d-block fw-normal" style="width:100%;">Belum punya?</p>
+                <a href="registerUser.php" class="login py-1 d-block text-decoration-none fw-semibold text-center rounded-2" style="width:100%;">Registrasi
+                </a>
+            </div>
+
         </div>
     </div>
 

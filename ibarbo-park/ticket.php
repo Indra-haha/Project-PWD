@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if (!isset($_SESSION['login'])) {
+    header('Location: ../ibarbo-park/index.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
