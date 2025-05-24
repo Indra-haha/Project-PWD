@@ -1,10 +1,4 @@
-<?php 
-session_start();
-if (!isset($_SESSION['login'])) {
-    header('Location: ../ibarbo-park/index.php');
-    exit();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,11 +21,11 @@ if (!isset($_SESSION['login'])) {
 </head>
 
 <body>
-    <?php require('views/top-bar.html') ?>
+    <?php require('views/top-bar.php') ?>
     <div class="d-flex justify-content-center align-items-center rubik-font bg-content-c" style="height:auto;">
         <img src="images/postertiket.jpg" alt="" style="width:500px;" class="my-5">
     </div>
-    <?php require('views/bottom-bar.html') ?>
+    <?php require('views/bottom-bar.php') ?>
     <script src="behavior.js "></script>
 </body>
 

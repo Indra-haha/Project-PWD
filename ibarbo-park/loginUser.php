@@ -53,16 +53,17 @@ if (isset($_SESSION['login'])) {
                     </div>
 
                 </div>
-                <div class="justify-content-center align-items-center d-flex my-1 rounded-2" style="width:100%;">
+                <div class="justify-content-center align-items-center d-flex my-1 rounded-2 px-2" style="width:100%;">
                     <button type="submit" class="login py-1 d-block rounded-2 border border-0 fw-bold" style="width:100%;">LOGIN</button>
                 </div>
             </form>
-            <div class="justify-content-center align-items-center d-flex" style="width:100%;">
+            <div class="justify-content-center align-items-center d-flex px-2" style="width:100%;">
                 <p class="mx-2 d-block fw-normal" style="width:100%;">Belum punya?</p>
-                <a href="registerUser.php" class="login py-1 d-block text-decoration-none fw-semibold text-center rounded-2" style="width:100%;">Registrasi
-                </a>
+                <a href="registerUser.php" class="login py-1 d-block text-decoration-none fw-semibold text-center rounded-2" style="width:100%;">REGISTER</a>
             </div>
-
+            <div class="justify-content-center align-items-center d-flex px-2 pt-3" style="width:100%;">
+                <a href="index.php" class="py-1 d-block text-decoration-none fw-semibold text-center rounded-2 text-orange" style="width:100%;">KEMBALI</a>
+            </div>
         </div>
     </div>
 

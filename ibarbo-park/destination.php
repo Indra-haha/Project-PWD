@@ -27,7 +27,7 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
-    <?php require('views/top-bar.html');
+    <?php require('views/top-bar.php');
     require_once('../server/koneksi.php');
     $pilDetail = isset($_GET['detail']);
     $queryUmum = "SELECT * FROM desdes";
@@ -115,7 +115,7 @@ if (isset($_SESSION['login'])) {
         </div>
     </div>
 
-    <?php require('views/bottom-bar.html') ?>
+    <?php require('views/bottom-bar.php') ?>
 
     <script src="behavior.js "></script>
 </body>

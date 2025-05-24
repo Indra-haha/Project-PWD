@@ -4,6 +4,7 @@ if (isset($_SESSION['login'])) {
     header('Location: ../server/admin.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,7 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
-    <?php require('views/top-bar.html') ?>
+    <?php require('views/top-bar.php') ?>
     <div class="bg-content-c rubik-font" style="height:auto; top:60px;">
         <img src="images/index.jpg" alt="" style="width:100%;" class="d-flex">
         <h2 class="p-0 m-4 mt-5 text-center text-warna-primary">
@@ -150,7 +151,7 @@ if (isset($_SESSION['login'])) {
             </div>
         </div>
     </div>
-    <?php require('views/bottom-bar.html') ?>
+    <?php require('views/bottom-bar.php') ?>
     <script src="behavior.js "></script>
 </body>
 

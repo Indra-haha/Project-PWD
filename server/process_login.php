@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
             $_SESSION['role'] = 'admin';
             $_SESSION['login'] = true;
             echo "<script>alert('Login berhasil');</script>";
-            header ('Location: admin.php');
+            header ('Location: ../server/');
         } else {
             $_SESSION['role'] = 'user';
             echo "<script>alert('Fitur Pemesanan Segera Datang!!!');</script>";

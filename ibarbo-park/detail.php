@@ -27,7 +27,7 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
-    <?php require('views/top-bar.html');
+    <?php require('views/top-bar.php');
     require_once('../server/koneksi.php');
     $queryUmum = "SELECT * FROM desdes WHERE kode = {$_GET['detail']}";
     $resultUmum = mysqli_query($connect, $queryUmum);
@@ -77,7 +77,7 @@ if (isset($_SESSION['login'])) {
         </div>
     </div>
 
-    <?php require('views/bottom-bar.html') ?>
+    <?php require('views/bottom-bar.php') ?>
 
     <script src="behavior.js "></script>
 </body>

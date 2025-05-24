@@ -1,3 +1,12 @@
+<?php
+require_once('../server/koneksi.php');
+$query = "SELECT kode, nama FROM desdes";
+$result = mysqli_query($connect, $query);
+if (!$result) {
+    die("Query failed: " . mysqli_error($connect));
+}
+$getData = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
 <div class="d-flex bg-bar-c rubik-font position-sticky top-0 shadow-lg header z-index-99 fw-bold">
     <div class="d-flex justify-content-between align-items-center mx-5 font-20" style="width: 85%;">
         <img src="images/logo-ibarbo.png" alt="logo" class="m-2" style="width:70px;">
@@ -16,19 +25,14 @@
                     <div id="destinasi-detail" class="invisible position-absolute my-4">
                         <div id="arrow1" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
+                            <?php
+                            foreach ($getData as $row => $value) {
+                            ?>
                             <li id="sub-menu-des" class="p-2 px-3">
-                                <a href="detail.php?detail=1" class="text-decoration-none">AVIARY PARK</a>
+                                <a href="detail.php?detail=<?= htmlspecialchars($value['kode']) ?>" class="text-decoration-none"><?= htmlspecialchars($value['nama']) ?></a>
                             </li>
-                            <li class="p-2 px-3">
-                                <a href="detail.php?detail=2" class="text-decoration-none">FUNTOWN</a>
-                            </li>
-                            <li class="p-2 px-3">
-                                <a href="detail.php?detail=3" class="text-decoration-none">SPLASHWORLD</a>
-                            </li>
-                            <li class="p-2 px-3">
-                                <a href="detail.php?detail=4" class="text-decoration-none">SOUVENIR
-                                    CENTER</a>
-                            </li>
+                            <?php }
+                            ?>
                         </ul>
                     </div>
                 </li>
@@ -93,7 +97,7 @@
         tiketDetail.classList.add('visible');
     });
     tiketBox.addEventListener('mouseout', () => {
-        tiketArrow.classList.remove('visible');
+        tiketArrow.classList.remove('invisible');
         tiketDetail.classList.remove('visible');
         tiketDetail.classList.add('invisible');
     });

@@ -235,6 +235,14 @@ a.admin:hover {
     transition-duration: 0.2s;
 }
 
+button.admin-buttonUbah p {
+    color: var(--warna-text-primary);
+}
+
+button.admin-buttonUbah:hover p {
+    opacity: 0.5;
+}
+
 div.login {
     background-image: url("../ibarbo-park/images/about.jpg");
     background-size: cover;
