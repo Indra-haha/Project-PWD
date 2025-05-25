@@ -11,8 +11,9 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN | IBARBO</title>
     <link rel="icon" href="../ibarbo-park/images/logo-ibarbo.png" type="image/x-icon">
@@ -28,30 +29,39 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
-<form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
-        <div class="d-flex justifity-content-start align-items-start flex-column">
-            <?php
-            $query = "DESC {$_POST['tabel']}";
-            $result = mysqli_query($connect, $query);
-            while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
-                    $type = 'number';
-                } else if ($row['Field'] == 'gambar') {
-                    $type = 'file';
-                } else if ($row['Field'] == 'deskripsi') {
-                    $type = 'textarea';
-                } else {
-                    $type = 'text';
+    <div class="m-auto d-flex justify-content-center mt-5" >
+        <form action="process_insert.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
+            <div class="d-flex justifity-content-start align-items-start flex-column">
+                <input type="hidden" name="tabel" value="<?= htmlspecialchars($_POST['tabel']) ?>">
+                <?php
+                $query = "DESC {$_POST['tabel']}";
+                $result = mysqli_query($connect, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                        $type = 'number';
+                    } else if ($row['Field'] == 'gambar' || $row['Field'] == 'gambarDetail') {
+                        $type = 'file';
+                    } else if ($row['Field'] == 'deskripsi') {
+                        $type = 'textarea';
+                    } else {
+                        $type = 'text';
+                    }
+                ?>
+                    <label for="<?= htmlspecialchars($row['Field']) ?>" class="mb-2 mt-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                    <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control mb-2" required>
+                <?php
                 }
-            ?>
-                <label for="<?= htmlspecialchars($row['Field']) ?>"><?= htmlspecialchars($row['Field']) ?></label>
-                <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control">
-            <?php
-            }
-            ?>
-            <button type="submit">Ubah</button>
-        </div>
-    </form>
+                ?>
+                <div class="d-flex my-5 jutify-content-between align-items-center">
+                    <button type="submit" class="btn btn-primary px-3 py-2 mx-5">Insert</button>
+                    <a href="index.php" class="text-decoration-none ">Kembali</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
+
 </html>

@@ -2,90 +2,46 @@
 session_start();
 require_once('../server/koneksi.php');
 
-if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
-    header('Location: ../ibarbo-park/index.php');
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $namaPrimaryTabel = [
         'desdes' => 'kode',
-        'tiket' => 'jenisTiket',
+        'tiket' => 'id',
         'fasilitasUmum' => 'idFasilitas',
         'fasilitasCombo' => 'id',
         'gamdes' => 'id'
     ];
-    if ($_POST['tabel'] == 'desdes') {
-        $kode = $_POST['kode']; // Tambahkan input ini di form HTML
-        $nama = $_POST['nama'];
-        $deskripsi = $_POST['deskripsi'];
 
-        if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === 0) {
-            $gambar_tmp = $_FILES['gambar']['tmp_name'];
-            $gambar_data = file_get_contents($gambar_tmp);
+    if (!isset($_POST['tabel']) || !array_key_exists($_POST['tabel'], $namaPrimaryTabel)) {
+        die("❌ Invalid table specified.");
+    }
 
-            $stmt = $connect->prepare("UPDATE desdes SET nama = ?, gambar = ?, deskripsi = ? WHERE kode = ?");
-            $stmt->bind_param("sbss", $nama, $null, $deskripsi, $kode);
-            $null = null; // diperlukan untuk placeholder blob
-            $stmt->send_long_data(1, $gambar_data);
 
-            if ($stmt->execute()) {
-                header('Location: admin.php');
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
+    if (!isset($_POST['idStrong'])) {
+        die("❌ No ID specified for update.");
+    }
 
-            $stmt->close();
-        } else {
-
-            $stmt = $connect->prepare("UPDATE desdes SET nama = ?, deskripsi = ? WHERE kode = ?");
-            $stmt->bind_param("sss", $nama, $deskripsi, $kode);
-
-            if ($stmt->execute()) {
-                header('Location: index.php');
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
-
-            $stmt->close();
+    $setParts = [];
+    foreach ($_POST as $key => $value) {
+        if ($key !== 'tabel' && $key !== 'id' && $value !== null) {
+            $safeKey = mysqli_real_escape_string($connect, $key);
+            $safeValue = mysqli_real_escape_string($connect, $value);
+            $setParts[] = "`$safeKey` = '$safeValue'";
+            $setClause = implode(", ", $setParts);
         }
-    } else if ($_POST['tabel'] == 'desdes') {
-    } else if ($_POST['tabel'] == 'tiket') {
-        $jenistiket = $_POST['jenisTiket'];
-        $hargaWeekday = $_POST['hargaWeekday'];
-        $hargaWeekend = $_POST['hargaWeekend'];
-        if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === 0) {
-            $gambar_tmp = $_FILES['gambar']['tmp_name'];
-            $gambar_data = file_get_contents($gambar_tmp);
+    }
 
-            $stmt = $connect->prepare("UPDATE tiket SET jenisTiket = ?, hargaWeekday = ?, hargaWeekend = ?, gambarr = ? WHERE jenisTiket = ?");
-            $stmt->bind_param("siibs", $jenisTiket, $hargaWeekday, $hargaWeekend, $gambar_data, $jenisTiket);
-            $null = null; // diperlukan untuk placeholder blob
-            $stmt->send_long_data(4, $gambar_data);
+    if (empty($setParts)) {
+        die("❌ No data to update.");
+    }
 
-            if ($stmt->execute()) {
-                header('Location: admin.php');
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
+    $setClause = implode(", ", $setParts);
 
-            $stmt->close();
-        } else {
+    $query = "UPDATE {$_POST['tabel']} SET $setClause WHERE {$namaPrimaryTabel[$_POST['tabel']]} = '{$_POST['idStrong']}'";
 
-            $stmt = $connect->prepare("UPDATE tiket SET jenisTiket = ?, hargaWeekday = ?, hargaWeekend = ? WHERE jenisTiket = ?");
-            $stmt->bind_param("siis", $jenisTiket, $hargaWeekday, $hargaWeekend, $jenisTiket);
-
-            if ($stmt->execute()) {
-                header('Location: index.php');
-                exit();
-            } else {
-                echo "Error: " . $stmt->error;
-            }
-
-            $stmt->close();
-        }
+    if (mysqli_query($connect, $query)) {
+        header('Location: index.php');
+        exit;
+    } else {
+        echo "❌ Gagal memperbarui data: " . mysqli_error($connect);
     }
 }

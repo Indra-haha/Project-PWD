@@ -42,28 +42,28 @@ if (isset($_SESSION['login'])) {
         </h2>
         <div class="d-flex column-gap-5 row-gap-5 justify-content-center flex-wrap" style="width:100%;">
             <div class="m-0 p-0 text-center position-relative">
-                <a href="?destination=aviary" class="d-flex text-decoration-none text-orange about rounded-circle">
+                <a href="detail.php?detail=1" class="d-flex text-decoration-none text-orange about rounded-circle">
                     <img src="images/aviary.jpg" alt="aviary" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Aviary</h3>
                     <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
             <div class="m-0 p-0 text-center position-relative">
-                <a href="?destination=funtown" class="d-flex text-decoration-none text-orange about rounded-circle">
+                <a href="detail.php?detail=2" class="d-flex text-decoration-none text-orange about rounded-circle">
                     <img src="images/funtown.jpg" alt="funtown" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Funtown</h3>
                     <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
             <div class="m-0 p-0 text-center position-relative">
-                <a href="?destination=splashwolrd" class="d-flex text-decoration-none text-orange about rounded-circle">
+                <a href="detail.php?detail=3" class="d-flex text-decoration-none text-orange about rounded-circle">
                     <img src="images/splashworld.jpg" alt="splashworld" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Splashworld</h3>
                     <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
                 </a>
             </div>
             <div class="m-0 p-0 text-center position-relative">
-                <a href="?destination=splashwolrd" class="d-flex text-decoration-none text-orange about rounded-circle">
+                <a href="detail.php?detail=4" class="d-flex text-decoration-none text-orange about rounded-circle">
                     <img src="images/souvenir.jpg" alt="souvenir" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
                     <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Souvenir</h3>
                     <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>

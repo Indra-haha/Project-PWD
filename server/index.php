@@ -84,9 +84,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                     <td class="px-2 align-middle d-flex justify-content-center rubik-font">
                         <form action="form_edit.php" method="POST">
                             <input type="hidden" name="tabel" value="desdes">
-                            <input type="hidden" name="kode" value="<?= htmlspecialchars($value['kode']) ?>">
-                            <input type="hidden" name="nama" value="<?= htmlspecialchars($value['nama']) ?>">
-                            <input type="hidden" name="deskripsi" value="<?= htmlspecialchars($value['deskripsi']) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['nama']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
@@ -108,7 +106,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
             } ?>
             <tr>
                 <td class="text-center px-2 align-middle">
-                    <form action="process_insert.php" method="POST">
+                    <form action="form_insert.php" method="POST">
                         <input type="hidden" name="tabel" value="desdes">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">
@@ -151,8 +149,6 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                         <form action="form_edit.php" method="POST">
                             <input type="hidden" name="tabel" value="gamdes">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
-                            <input type="hidden" name="kode" value="<?= htmlspecialchars($kode) ?>">
-                            <input type="hidden" name="deskripsi" value="<?= htmlspecialchars($value['deskripsiDetail']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
@@ -174,7 +170,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
             ?>
             <tr>
                 <td class="text-center px-2 align-middle">
-                    <form action="process_insert.php" method="POST">
+                    <form action="form_insert.php" method="POST">
                         <input type="hidden" name="tabel" value="gamdes">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">
@@ -210,16 +206,14 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
 
             ?>
                 <tr class="my-5 align-items-center justify-content-center">
-                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['jenisTiket']) ?></td>
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['id']) ?></td>
                     <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['hargaWeekday']) ?></td>
                     <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['hargaWeekday']) ?></td>
                     <td class="text-center px-2 align-middle"><img src="data:image/jpeg;base64,<?= base64_encode($value['gambar']) ?>" alt="Gambar" width="100"></td>
                     <td class="px-2 align-middle font-15justify-content-center">
                         <form action="form_edit.php" method="POST">
                             <input type="hidden" name="tabel" value="tiket">
-                            <input type="hidden" name="jenisTket" value="<?= htmlspecialchars($nama) ?>">
-                            <input type="hidden" name="hargaWeekday" value="<?= htmlspecialchars($hargaWeekday) ?>">
-                            <input type="hidden" name="hargaWeekend" value="<?= htmlspecialchars($hargaWeekend) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
@@ -229,7 +223,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                     <td class="px-2 align-middle justify-content-center">
                         <form action="process_hapus.php" method="POST">
                             <input type="hidden" name="tabel" value="tiket">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['jenisTiket']) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-remove.svg" alt="remove" class="p-2">
                             </button>
@@ -241,7 +235,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
             } ?>
             <tr>
                 <td class="text-center px-2 align-middle">
-                    <form action="process_insert.php" method="POST">
+                    <form action="form_insert.php" method="POST">
                         <input type="hidden" name="tabel" value="tiket">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">
@@ -280,8 +274,6 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                             <input type="hidden" name="tabel" value="fasilitasumum">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($value['idFasilitas']) ?>">
                             <input type="hidden" name="fasilitas" value="<?= htmlspecialchars($value['fasilitas']) ?>">
-                            <input type="hidden" name="jenisTiket" value="<?= htmlspecialchars($value['jenisTiket']) ?>">
-                            <input type="hidden" name="jenisTiket2" value="<?= htmlspecialchars($value['jenisTiket2']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
@@ -303,7 +295,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
             ?>
             <tr class="my-2 justify-content-center align-items-center">
                 <td class="text-center px-2 align-middle">
-                    <form action="process_insert.php" method="POST">
+                    <form action="form_insert.php" method="POST">
                         <input type="hidden" name="tabel" value="fasilitasumum">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">
@@ -365,7 +357,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
             ?>
              <tr class="my-2 justify-content-center align-items-center">
                 <td class="text-center px-2 align-middle">
-                    <form action="process_insert.php" method="POST">
+                    <form action="form_insert.php" method="POST">
                         <input type="hidden" name="tabel" value="fasilitasCombo">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">

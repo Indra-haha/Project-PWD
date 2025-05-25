@@ -1,49 +1,46 @@
 <?php
 session_start();
 require_once('../server/koneksi.php');
+
 if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     header('Location: ../ibarbo-park/index.php');
     exit();
 }
-$kode = $_POST['kode'];
-$nama = $_POST['nama'];
-$deskripsi = $_POST['deskripsi'];
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $namaPrimaryTabel = [
-        'desdes' => 'kode',
-        'tiket' => 'jenisTiket',
-        'fasilitasUmum' => 'idFasilitas',
-        'fasilitasCombo' => 'id',
-        'gamdes' => 'id'
-    ];
-    if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === 0) {
-        $gambar_tmp = $_FILES['gambar']['tmp_name'];
-        $gambar_data = file_get_contents($gambar_tmp);
-    
-        // Prepare statement
-        $stmt = $connect->prepare("INSERT INTO desdes (kode, nama, gambar, deskripsi) VALUES (?, ?, ?, ?)");
-        
-        // Bind parameters:
-        // s = string (kode)
-        // s = string (nama)
-        // b = blob (gambar)
-        // s = string (deskripsi)
-        $stmt->bind_param("ssbs", $kode, $nama, $null, $deskripsi);
-    
-        // Kirim data blob secara manual ke parameter ke-3 (indeks 2)
-        $stmt->send_long_data(2, $gambar_data);
-    
-        if ($stmt->execute()) {
-            echo "<alert>Data berhasil disimpan.</alert>";
-            header ('Location: index.php');
-        } else {
-            echo "Error: " . $stmt->error;
+    $tabel = $_POST['tabel'];
+    $kolom = [];
+    $nilai = [];
+
+    // Ambil data dari POST kecuali 'tabel', 'id', 'submit', dan 'gambar' (karena gambar di-handle file upload)
+    foreach ($_POST as $key => $value) {
+        if ($key != 'tabel' && $key != 'id' && $key != 'submit' && $key != 'gambar') {
+            $kolom[] = "`" . $key . "`";
+            $nilai[] = "'" . mysqli_real_escape_string($connect, $value) . "'";
         }
-    
-        $stmt->close();
+    }
+
+    // Tangani upload file gambar
+    if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] == UPLOAD_ERR_OK) {
+        $gambarData = file_get_contents($_FILES['gambar']['tmp_name']);
+        $gambarDataEscaped = mysqli_real_escape_string($connect, $gambarData);
+
+        $kolom[] = "`gambar`";  // kolom BLOB di database
+        $nilai[] = "'$gambarDataEscaped'";
+    }
+
+    // Susun query INSERT
+    $kolomStr = implode(", ", $kolom);
+    $nilaiStr = implode(", ", $nilai);
+    $query = "INSERT INTO `$tabel` ($kolomStr) VALUES ($nilaiStr)";
+
+    // Eksekusi query
+    if (mysqli_query($connect, $query)) {
+        // Redirect ke halaman index atau halaman lain setelah sukses
+        header('Location: index.php');
+        exit();
     } else {
-        echo "Gambar belum diupload atau error.";
+        echo "❌ Gagal menyimpan data: " . mysqli_error($connect);
     }
 }
-
 ?>

@@ -6,9 +6,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     header('Location: ../ibarbo-park/index.php');
     exit();
 }
-$kode = $_POST['kode'];
-$name = $_POST['nama'];
-$deskripsi = $_POST['deskripsi'];
+$id = isset($_POST['id']) ? $_POST['id'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,30 +30,47 @@ $deskripsi = $_POST['deskripsi'];
 </head>
 
 <body>
-    <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
-        <div class="d-flex justifity-content-start align-items-start flex-column">
-            <?php
-            $query = "DESC {$_POST['tabel']}";
-            $result = mysqli_query($connect, $query);
-            while ($row = mysqli_fetch_assoc($result)) {
-                if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
-                    $type = 'number';
-                } else if ($row['Field'] == 'gambar') {
-                    $type = 'file';
-                } else if ($row['Field'] == 'deskripsi') {
-                    $type = 'textarea';
-                } else {
-                    $type = 'text';
-                }
-            ?>
-                <label for="<?= htmlspecialchars($row['Field']) ?>"><?= htmlspecialchars($row['Field']) ?></label>
-                <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control">
-            <?php
-            }
-            ?>
-            <button type="submit">Ubah</button>
+    <div id="mainTiket" class="position-relative flex-wrap d-flex my-5 pt-5" style="width:100%;height:auto;overflow-y:auto;">
+        <div class = "d-block">
+            <h2>Tabel <?= htmlspecialchars($_POST['tabel']) ?> - Edit Data</h2>
+            <h3>ID <?= $id ?></h3>
         </div>
-    </form>
+        <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap p-2">
+            <div class="d-flex justifity-content-start align-items-center d-block mx-5">
+                <input type="hidden" name="tabel" value="<?= htmlspecialchars($_POST['tabel']) ?>">
+                <?php
+                $query = "DESC {$_POST['tabel']}";
+                $result = mysqli_query($connect, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                        $type = 'number';      
+                    } else if ($row['Field'] == 'gambar' || $row['Field'] == 'gambarDetail') {
+                        $type = 'file';
+                    } else if ($row['Field'] == 'deskripsi') {
+                        $type = 'textarea';
+                    } else if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                        $type = 'hidden';
+                    } else {
+                        $type = 'text';
+                    }
+                ?>
+                    <div class="d-block mx-3">
+                        <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                        <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control" >
+                    </div>
+
+                <?php
+                }
+                ?>
+            </div>
+            <div class="d-flex mx-3">
+                <button type="submit" class="btn btn-primary px-3 py-2">Ubah</button>
+            </div>
+            <div class="d-flex mx-3 justify-content-center align-items-center">
+                <a href="index.php" class="text-decoration-none">Kembali</a>
+            </div>
+        </form>
+
 </body>
 
 </html>
