@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once('../server/koneksi.php');
 $username = $connect->real_escape_string($_POST['username']);
@@ -12,22 +12,21 @@ if ($result->num_rows > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['nama'] = $row['nama'];
         $_SESSION['telepon'] = $row['telepon'];
-        if($row['role'] == 'admin'){
+        if ($row['role'] == 'admin') {
             $_SESSION['role'] = 'admin';
             $_SESSION['login'] = true;
             echo "<script>alert('Login berhasil');</script>";
-            header ('Location: ../server/');
+            header('Location: ../server/');
         } else {
             $_SESSION['role'] = 'user';
-            echo "<script>alert('Fitur Pemesanan Segera Datang!!!');</script>";
-            header ('Location: ../ibarbo-park/ticket.php');
+            echo "<script>alert('Fitur Pemesanan Segera Datang!!!');
+        window.location.href='../ibarbo-park/ticket.php';</script>";
         }
     } else {
-        echo "<script>alert('Password salah');</script>";
-        header ('Location: ../ibarbo-park/loginUser.php');
+        echo "<script>alert('Ups ID dan Password salah :(');
+        window.location.href='../ibarbo-park/loginUser.php';</script>";
     }
 } else {
-    echo "<script>alert('Username tidak terdaftar');</script>";
-    header ('Location: ../ibarbo-park/loginUser.php');
+    echo "<script>alert('Ups Username tidak ditemukan :(');
+        window.location.href='../ibarbo-park/loginUser.php';</script>";
 }
-?>

@@ -6,9 +6,9 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     header('Location: ../ibarbo-park/index.php');
     exit();
 }
-$kode=$_POST['kode'];
-$name=$_POST['nama'];
-$deskripsi=$_POST['deskripsi'];
+$kode = $_POST['kode'];
+$name = $_POST['nama'];
+$deskripsi = $_POST['deskripsi'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,25 +32,32 @@ $deskripsi=$_POST['deskripsi'];
 </head>
 
 <body>
-    <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="kode">Kode : </label>
-            <input type="hidden" name="kode" value="<?= $kode ?>" placeholder="<?= htmlspecialchars($kode) ?>" class="form-control">
-        </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="name">Nama</label>
-            <input type="text" name="nama" value="<?= $name ?>" placeholder="<?= htmlspecialchars($name) ?>" class="form-control">
-        </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="gambar">Gambar</label>
-            <input type="file" name="gambar" class="form-control">
-        </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="deskripsi">Deskripsi</label>
-            <textarea name="deskripsi" value="<?= $deskripsi ?>" placeholder="<?= htmlspecialchars($deskripsi) ?>" class="form-control" rows=8 colomn=100><?= $deskripsi ?></textarea>
-        </div>
-        <button type="submit">Ubah</button>
-    </form>
+    <?php
+    if ($_POST['tabel'] == 'desdes') {
+    ?>
+        <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
+            <div class="d-flex justifity-content-center align-items-center flex-column">
+                <label for="kode">Kode : </label>
+                <input type="hidden" name="kode" value="<?= $kode ?>" placeholder="<?= htmlspecialchars($kode) ?>" class="form-control">
+            </div>
+            <div class="d-flex justifity-content-center align-items-center flex-column">
+                <label for="name">Nama</label>
+                <input type="text" name="nama" value="<?= $name ?>" placeholder="<?= htmlspecialchars($name) ?>" class="form-control">
+            </div>
+            <div class="d-flex justifity-content-center align-items-center flex-column">
+                <label for="gambar">Gambar</label>
+                <input type="file" name="gambar" class="form-control">
+            </div>
+            <div class="d-flex justifity-content-center align-items-center flex-column">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea name="deskripsi" value="<?= $deskripsi ?>" placeholder="<?= htmlspecialchars($deskripsi) ?>" class="form-control" rows=8 colomn=100><?= $deskripsi ?></textarea>
+            </div>
+            <button type="submit">Ubah</button>
+        </form>
+    <?php
+    }
+    ?>
+
 </body>
 
 </html>
