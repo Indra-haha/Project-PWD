@@ -55,7 +55,6 @@ $deskripsi = $_POST['deskripsi'];
             ?>
             <button type="submit">Ubah</button>
         </div>
-
     </form>
 </body>
 

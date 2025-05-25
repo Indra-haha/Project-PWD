@@ -29,24 +29,29 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
         rel="stylesheet">
 </head>
 <body>
-    <form action="process_insert.php" method="POST" enctype="multipart/form-data">
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="kode">Kode : </label>
-            <input type="text" name="kode" placeholder="Masukkan Kode" class="form-control">
+<form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
+        <div class="d-flex justifity-content-start align-items-start flex-column">
+            <?php
+            $query = "DESC {$_POST['tabel']}";
+            $result = mysqli_query($connect, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                    $type = 'number';
+                } else if ($row['Field'] == 'gambar') {
+                    $type = 'file';
+                } else if ($row['Field'] == 'deskripsi') {
+                    $type = 'textarea';
+                } else {
+                    $type = 'text';
+                }
+            ?>
+                <label for="<?= htmlspecialchars($row['Field']) ?>"><?= htmlspecialchars($row['Field']) ?></label>
+                <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control">
+            <?php
+            }
+            ?>
+            <button type="submit">Ubah</button>
         </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="name">Nama</label>
-            <input type="text" name="nama" placeholder="Masukkan Nama" class="form-control">
-        </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="gambar">Gambar</label>
-            <input type="file" name="gambar" placeholder="Masukkan Gambar" class="form-control">
-        </div>
-        <div class="d-flex justifity-content-center align-items-center flex-column">
-            <label for="deskripsi">Deskripsi</label>
-            <textarea name="deskripsi" placeholder="Masukkan Deskripsi" class="form-control" rows=8 colomn=100></textarea>
-        </div>
-        <button type="submit">Tambah</button>
     </form>
 </body>
 </html>
