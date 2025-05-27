@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $namaPrimaryTabel = [
         'desdes' => 'kode',
         'tiket' => 'id',
-        'fasilitasUmum' => 'idFasilitas',
-        'fasilitasCombo' => 'id',
+        'fasilitasumum' => 'id',
+        'fasilitascombo' => 'id',
         'gamdes' => 'id'
     ];
     $query = "DELETE FROM {$_POST['tabel']} WHERE {$namaPrimaryTabel[$_POST['tabel']]} = '{$_POST['id']}'";

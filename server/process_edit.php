@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $namaPrimaryTabel = [
         'desdes' => 'kode',
         'tiket' => 'id',
-        'fasilitasUmum' => 'idFasilitas',
-        'fasilitasCombo' => 'id',
+        'fasilitasumum' => 'id',
+        'fasilitascombo' => 'id',
         'gamdes' => 'id'
     ];
 

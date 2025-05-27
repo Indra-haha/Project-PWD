@@ -7,6 +7,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     exit();
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,42 +35,41 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
     <div class="position-relative flex-wrap d-flex mt-5 pt-3" style="width:100%;height:auto;overflow-y:auto;">
         <table class="mx-5 table table-hover rubik-font d-flex">
             <tr class="my-2 justify-content-center align-items-center">
-                <th class="text-center p-2">Kode</th>
-                <th class="text-center p-2">Nama</th>
-                <th class="text-center p-2">Gambar</th>
-                <th class="text-center p-2">Deskripsi</th>
+                <th class="text-center p-2">Id</th>
+                <th class="text-center p-2">Jenis Tiket</th>
+                <th class="text-center p-2">Fasilitas</th>
                 <th class="text-center p-2">Changes</th>
                 <th class="text-center p-2">Remove</th>
             </tr>
             <?php
-            $query = "SELECT * FROM desdes";
+            $query = "SELECT * FROM fasilitasCombo";
             $result = mysqli_query($connect, $query);
-
             if (!$result) {
                 die("Query failed: " . mysqli_error($connect));
             }
             $getData = mysqli_fetch_all($result, MYSQLI_ASSOC);
             foreach ($getData as $key => $value) {
             ?>
-                <tr class="my-5 align-items-center justify-content-center">
-                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['kode']) ?></td>
-                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['nama']) ?></td>
-                    <td class="px-2 align-middle"><img src="data:image/jpeg;base64,<?= base64_encode($value['gambar']) ?>" alt="Gambar" width="100"></td>
-                    <td class="px-2 align-middle"><?= htmlspecialchars($value['deskripsi']) ?></td>
-                    <td class="px-2 align-middle d-flex justify-content-center rubik-font">
+                <tr class="my-2 justify-content-center align-items-center">
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['id']) ?></td>
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['jenisTiket']) ?></td>
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['fasilitas']) ?></td>
+                    <td td class="text-center px-2 align-middle">
                         <form action="form_edit.php" method="POST">
-                            <input type="hidden" name="tabel" value="desdes">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['nama']) ?>">
+                            <input type="hidden" name="tabel" value="fasilitascombo">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
+                            <input type="hidden" name="jenisTiket" value="<?= htmlspecialchars($value['jenisTiket']) ?>">
+                            <input type="hidden" name="fasilitas" value="<?= htmlspecialchars($value['fasilitas']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
                             </input>
                         </form>
                     </td>
-                    <td class="px-2 align-middle justify-content-center">
+                    <td td class="text-center px-2 align-middle">
                         <form action="process_hapus.php" method="POST">
-                            <input type="hidden" name="tabel" value="desdes">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['kode']) ?>">
+                            <input type="hidden" name="tabel" value="fasilitasCombo">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-remove.svg" alt="remove" class="p-2">
                             </button>
@@ -77,19 +77,17 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                         </form>
                     </td>
                 </tr>
-            <?php
-            } ?>
-            <tr>
+            <?php }
+            ?>
+            <tr class="my-2 justify-content-center align-items-center">
                 <td class="text-center px-2 align-middle">
                     <form action="form_insert.php" method="POST">
-                        <input type="hidden" name="tabel" value="desdes">
+                        <input type="hidden" name="tabel" value="fasilitasCombo">
                         <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                             <img src="../ibarbo-park/images/logo-add.svg" alt="add" class="p-2">
                         </button>
                     </form>
                 </td>
-                <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

@@ -31,17 +31,17 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
 </head>
 
 <body>
-    <div class="m-auto d-flex justify-content-center mt-5" >
-        <form action="process_insert.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap">
+    <div class="m-auto d-flex justify-content-center mt-5 " >
+        <form action="process_insert.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap border py-3 px-5 rounded-3">
             <div class="d-flex justifity-content-start align-items-start flex-column">
                 <input type="hidden" name="tabel" value="<?= htmlspecialchars($_POST['tabel']) ?>">
                 <?php
                 $query = "DESC {$_POST['tabel']}";
                 $result = mysqli_query($connect, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                    if ($row['Field'] == 'id' || $row['Field'] == 'kode') {
                         $type = 'number';
-                    } else if ($row['Field'] == 'gambar' || $row['Field'] == 'gambarDetail') {
+                    } else if ($row['Field'] == 'gambar') {
                         $type = 'file';
                     } else if ($row['Field'] == 'deskripsi') {
                         $type = 'textarea';
@@ -49,8 +49,8 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                         $type = 'text';
                     }
                 ?>
-                    <label for="<?= htmlspecialchars($row['Field']) ?>" class="mb-2 mt-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
-                    <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control mb-2" required>
+                    <label for="<?= htmlspecialchars($row['Field']) ?>" class="mb-2 mt-3 mx-2 text-capitalize"><?= htmlspecialchars($row['Field']) ?></label>
+                    <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2" required>
                 <?php
                 }
                 ?>

@@ -135,20 +135,25 @@ if (isset($_SESSION['login'])) {
             Get Me Now
         </h2>
         <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3" style="width:100%;">
-            <div class="mb-5 p-0 text-center position-relative">
-                <a href="ticket.php" class="d-flex text-decoration-none text-orange about rounded-5">
-                    <img src="images/tiketRegular.jpg" alt="tiket-regular" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;">Reguler</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
-                </a>
-            </div>
-            <div class="mb-5 p-0 text-center position-relative">
-                <a href="ticket.php" class="d-flex text-decoration-none text-orange about rounded-5">
-                    <img src="images/TikatCombo.jpg" alt="tiket-combo" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;">Combo</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
-                </a>
-            </div>
+            <?php
+            $query = "SELECT * FROM tiket";
+            $result = mysqli_query($connect, $query);
+            if (!$result) {
+                die("Query failed: " . mysqli_error($connect));
+            }
+            $getTiket = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach($getTiket as $tiket){
+            ?>
+                <div class="mb-5 p-0 text-center position-relative">
+                    <a href="ticket.php?tiket=<?= htmlspecialchars($tiket['id']) ?>" class="d-flex text-decoration-none text-orange about rounded-5">
+                        <img src="data:image/jpeg;base64,<?= base64_encode($tiket['gambar']) ?>" alt="tiket-<?= htmlspecialchars($tiket['id']) ?>" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
+                        <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;"><?= htmlspecialchars($tiket['id']) ?></h3>
+                        <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
+                    </a>
+                </div>
+                <?php
+            }
+            ?>
         </div>
     </div>
     <?php require('views/bottom-bar.php') ?>

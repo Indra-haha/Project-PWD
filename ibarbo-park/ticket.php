@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +21,68 @@
 
 <body>
     <?php require('views/top-bar.php') ?>
-    <div class="d-flex justify-content-center align-items-center rubik-font bg-content-c" style="height:auto;">
-        <img src="images/postertiket.jpg" alt="" style="width:500px;" class="my-5">
+    <div class="d-block justify-content-center align-items-center rubik-font bg-content-c text-warna-primary" style="width:100%;">
+        <div class="d-flex flex-wrap justify-content-center align-items-center p-5 rounded-5 mx-5" style="width:100%;max-width:1200px;">
+            <?php
+            if (!isset($_GET) || empty($_GET)) {
+                $query = "SELECT id, gambar FROM tiket";
+                $result = mysqli_query($connect, $query);
+                $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                foreach ($data as $d) {
+            ?>
+                    <img src="data:image/jpeg;base64,<?= base64_encode($d['gambar']) ?>" alt="<?= $d['id'] ?>" style="width:500px;hight:100%;" class="rounded-5 shadow-lg m-3">
+
+                <?php } ?>
+        </div>
+    <?php
+            } else { ?>
+        <div class="d-flex flex-wrap justify-content-center align-items-center p-5 rounded-5 column-gap-4" style="width:100%;">
+            <?php
+                $query = "SELECT gambar, hargaWeekday, hargaWeekend FROM tiket WHERE id = '{$_GET['tiket']}'";
+                $result = mysqli_query($connect, $query);
+                $data = mysqli_fetch_assoc($result);
+            ?>
+            <div>
+                <img src="data:image/jpeg;base64,<?= base64_encode($data['gambar']) ?>" alt="Ticket Image" style="width:500px;hight:100%;" class="rounded-5 shadow-lg">
+            </div>
+            <div class="d-block p-3 justify-content-center align-items-center" style="width:300px;">
+                <h2 class="pb-1">Hak Akses</h2>
+                <?php
+                $query = "SELECT fasilitas FROM fasilitasUmum";
+                $result = mysqli_query($connect, $query);
+                $fasilitas = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                foreach ($fasilitas as $f) {
+                ?>
+                    <p class="font-16 py-1"><?= $f['fasilitas'] ?></p>
+                <?php }
+                $query = "SELECT fasilitas FROM fasilitasCombo WHERE jenisTiket = '{$_GET['tiket']}'";
+                $result = mysqli_query($connect, $query);
+                $fasilitasCombo = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                if (empty($fasilitasCombo)) { ?>
+                    <p class="font-16 fw-semibold py-1">Tidak ada fasilitas tambahan untuk tiket ini.</p>
+                <?php
+                } else if (count($fasilitasCombo) > 0) { ?>
+                    <h3 class="pb-1">Fasilitas Tambahan</h3>
+                <?php } ?>
+                <div class="d-flex">
+                    <?php
+                    foreach ($fasilitasCombo as $fc) {
+                    ?>
+                        <p class="font-16 py-1 px-2 text-center"><?= $fc['fasilitas'] ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="d-block mx-5 my-5">
+                <div class="py-2 justify-content-center align-items-center fw-semibold text-center font-20">Weekday</div>
+                <button class="btn btn-primary px-5 py-3 font-20"><?= htmlspecialchars($data['hargaWeekday']) ?></button>
+            </div>
+            <div class="d-block mx-5 my-5">
+                <div class="py-2 justify-content-center align-items-center fw-semibold text-center font-20">Weekday</div>
+                <button class="btn btn-secondary px-5 py-3 font-20"><?= htmlspecialchars($data['hargaWeekend']) ?></button>
+            </div>
+        </div>
+    <?php
+            } ?>
     </div>
     <?php require('views/bottom-bar.php') ?>
     <script src="behavior.js "></script>

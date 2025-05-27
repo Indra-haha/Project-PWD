@@ -41,19 +41,14 @@ if (isset($_SESSION['login'])) {
                     </div>
                     <div class="justify-content-center align-items-center d-block my-1" style="width:100%;">
                         <label for="username" class="mb-2">Username :</label>
-                        <input type="text" name="username" id="username" class="form-control justify-content-center" required>
+                        <input type="text" name="username" id="username" class="form-control px-2 py-1" required>
                     </div>
                     <div class="justify-content-center align-items-center d-block my-2" style="width:100%;">
                         <label for="password" class="mb-2">Password :</label>
-                        <input type="password" name="password" class="form-control justify-content-center" id="password" required>
+                        <input type="password" name="password" class="form-control px-2 py-1" id="password" required>
                     </div>
-                    <div class="justify-content-center align-items-center d-flex" style="width:100%;">
-                        <label for="remember" class="mx-3">Remember Me</label>
-                        <input type="checkbox" name="remember" id="remember">
-                    </div>
-
                 </div>
-                <div class="justify-content-center align-items-center d-flex my-1 rounded-2 px-2" style="width:100%;">
+                <div class="justify-content-center align-items-center d-flex my-1 rounded-2 px-2 mb-3" style="width:100%;">
                     <button type="submit" class="login py-1 d-block rounded-2 border border-0 fw-bold" style="width:100%;">LOGIN</button>
                 </div>
             </form>

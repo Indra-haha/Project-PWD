@@ -42,7 +42,7 @@ if (isset($_SESSION['login'])) {
                 $hitung++;
                 $image_data = $value['gambar'];  // Assuming 'gambar' is the binary data
                 $image_type = "image/jpeg";
-                $queryDetail = "SELECT * FROM gamdes g 
+                $queryDetail = "SELECT d.nama, d.gambar, d.deskripsi, g.gambar, g.deskripsiDetail FROM gamdes g 
                             JOIN desdes d ON g.kode = d.kode 
                             WHERE g.kode = {$value['kode']}";
                 $resultDetail = mysqli_query($connect, $queryDetail);
@@ -60,7 +60,7 @@ if (isset($_SESSION['login'])) {
                 <div class="d-flex justify-content-center flex-wrap column-gap-5 row-gap-3 my-3">
                     <?php
                     foreach ($result2 as $key2 => $value2) {
-                        $image_data_detail = $value2['gambarDetail']; // Assuming 'gambar' is the binary data
+                        $image_data_detail = $value2['gambar']; // Assuming 'gambar' is the binary data
                         $image_type_detail = "image/jpeg";
                     ?>
 

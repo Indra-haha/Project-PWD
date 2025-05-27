@@ -30,47 +30,73 @@ $id = isset($_POST['id']) ? $_POST['id'] : '';
 </head>
 
 <body>
-    <div id="mainTiket" class="position-relative flex-wrap d-flex my-5 pt-5" style="width:100%;height:auto;overflow-y:auto;">
-        <div class = "d-block">
-            <h2>Tabel <?= htmlspecialchars($_POST['tabel']) ?> - Edit Data</h2>
-            <h3>ID <?= $id ?></h3>
-        </div>
-        <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap p-2">
-            <div class="d-flex justifity-content-start align-items-center d-block mx-5">
+    <div id="mainTiket" class="position-relative flex-wrap d-flex justify-content-center align-items-center p-0 m-0 rubik-font" style="width:100%;height:100vh;">
+        <table class="p-5 table table-hover rubik-font d-flex justify-content-center align-items-center" style="width:500px;">
+            <?php
+            $namaPrimaryTabel = [
+                'desdes' => 'nama',
+                'tiket' => 'id',
+                'fasilitasumum' => 'id',
+                'fasilitascombo' => 'id',
+                'gamdes' => 'id'
+            ];
+
+            $query = "SELECT * FROM {$_POST['tabel']} WHERE {$namaPrimaryTabel[$_POST['tabel']]} = '{$_POST['id']}'";
+            $result = mysqli_query($connect, $query);
+            $getData = mysqli_fetch_assoc($result);
+            foreach ($getData as $key => $value) {
+            ?>
+                <tr>
+                    <?php
+                    if ($key == 'gambar') {
+                    ?>
+                        <th class="text-start p-2 py-4"><?= htmlspecialchars($key) ?></th>
+                        <td><img src="data:image/jpeg;base64,<?= base64_encode($value) ?>" alt="" style="width:300px;" class="py-4"></td>
+                    <?php
+                    } else {
+                    ?>
+                        <th class="text-start p-2 py-4"><?= htmlspecialchars($key) ?></th>
+                        <td class="text-start p-2 py-4"><?= htmlspecialchars($value) ?></td>
+                    <?php
+                    }
+                    ?>
+                </tr>
+            <?php
+            } ?>
+        </table>
+        <form action="process_edit.php" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap py-3 px-5 rounded-3 mx-5">
+            <div class="d-block justifity-content-start align-items-center d-block mx-3">
                 <input type="hidden" name="tabel" value="<?= htmlspecialchars($_POST['tabel']) ?>">
                 <?php
                 $query = "DESC {$_POST['tabel']}";
                 $result = mysqli_query($connect, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
-                        $type = 'number';      
-                    } else if ($row['Field'] == 'gambar' || $row['Field'] == 'gambarDetail') {
+                    if ($row['Field'] == 'id' || $row['Field'] == 'kode') {
+                        $type = 'number';
+                    } else if ($row['Field'] == 'gambar') {
                         $type = 'file';
                     } else if ($row['Field'] == 'deskripsi') {
                         $type = 'textarea';
-                    } else if ($row['Field'] == 'id' || $row['Field'] == 'idFasilitas' || $row['Field'] == 'kode') {
+                    } else if ($row['Field'] == 'id' || $row['Field'] == 'kode') {
                         $type = 'hidden';
                     } else {
                         $type = 'text';
                     }
                 ?>
-                    <div class="d-block mx-3">
+                    <div class="d-block mx-3 my-3">
                         <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
-                        <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control" >
+                        <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2">
                     </div>
 
                 <?php
                 }
                 ?>
-            </div>
-            <div class="d-flex mx-3">
-                <button type="submit" class="btn btn-primary px-3 py-2">Ubah</button>
-            </div>
-            <div class="d-flex mx-3 justify-content-center align-items-center">
-                <a href="index.php" class="text-decoration-none">Kembali</a>
+                <div class="d-flex justify-content-around align-items-center my-5">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Ubah</button>
+                    <a href="index.php" class="text-decoration-none">Kembali</a>
+                </div>
             </div>
         </form>
-
 </body>
 
 </html>
