@@ -50,13 +50,13 @@ $id = isset($_POST['id']) ? $_POST['id'] : '';
                     <?php
                     if ($key == 'gambar') {
                     ?>
-                        <th class="text-start p-2 py-4"><?= htmlspecialchars($key) ?></th>
+                        <th class="text-start p-2 py-4 text-capitalize"><?= htmlspecialchars($key) ?></th>
                         <td><img src="data:image/jpeg;base64,<?= base64_encode($value) ?>" alt="" style="width:300px;" class="py-4"></td>
                     <?php
                     } else {
                     ?>
-                        <th class="text-start p-2 py-4"><?= htmlspecialchars($key) ?></th>
-                        <td class="text-start p-2 py-4"><?= htmlspecialchars($value) ?></td>
+                        <th class="text-start p-2 py-4 text-capitalize"><?= htmlspecialchars($key) ?></th>
+                        <td class="text-start p-2 py-4 text-capitalize"><?= htmlspecialchars($value) ?></td>
                     <?php
                     }
                     ?>

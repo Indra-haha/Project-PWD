@@ -49,7 +49,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                         $type = 'text';
                     }
                 ?>
-                    <label for="<?= htmlspecialchars($row['Field']) ?>" class="mb-2 mt-3 mx-2 text-capitalize"><?= htmlspecialchars($row['Field']) ?></label>
+                    <label for="<?= htmlspecialchars($row['Field']) ?>" class="mb-2 mt-3 mx-2 text-capitalize fw-semibold"><?= htmlspecialchars($row['Field']) ?></label>
                     <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2" required>
                 <?php
                 }
