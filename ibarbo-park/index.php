@@ -1,5 +1,6 @@
-<?php 
+<?php
 session_start();
+require_once('../server/koneksi.php');
 if (isset($_SESSION['login'])) {
     exit();
 }
@@ -40,34 +41,24 @@ if (isset($_SESSION['login'])) {
             Explore Our Destination
         </h2>
         <div class="d-flex column-gap-5 row-gap-5 justify-content-center flex-wrap" style="width:100%;">
-            <div class="m-0 p-0 text-center position-relative">
-                <a href="detail.php?detail=1" class="d-flex text-decoration-none text-orange about rounded-circle">
-                    <img src="images/aviary.jpg" alt="aviary" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Aviary</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
-                </a>
-            </div>
-            <div class="m-0 p-0 text-center position-relative">
-                <a href="detail.php?detail=2" class="d-flex text-decoration-none text-orange about rounded-circle">
-                    <img src="images/funtown.jpg" alt="funtown" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Funtown</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
-                </a>
-            </div>
-            <div class="m-0 p-0 text-center position-relative">
-                <a href="detail.php?detail=3" class="d-flex text-decoration-none text-orange about rounded-circle">
-                    <img src="images/splashworld.jpg" alt="splashworld" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Splashworld</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
-                </a>
-            </div>
-            <div class="m-0 p-0 text-center position-relative">
-                <a href="detail.php?detail=4" class="d-flex text-decoration-none text-orange about rounded-circle">
-                    <img src="images/souvenir.jpg" alt="souvenir" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
-                    <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;">Souvenir</h3>
-                    <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
-                </a>
-            </div>
+            <?php
+            $query = "SELECT * FROM maingambar";
+            $result = mysqli_query($connect, $query);
+            $resultFix = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($resultFix as $value) {
+                $image_data = $value['gambar'];  // Assuming 'gambar' is the binary data
+                $image_type = "image/jpeg";
+            ?>
+                <div class="m-0 p-0 text-center position-relative">
+                    <a href="detail.php?detail=<?= htmlspecialchars($value['id'])?>" class="d-flex text-decoration-none text-orange about rounded-circle">
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($image_data); ?>" alt="aviary" style="width:280px;height:280px;" class="d-flex rounded-circle shadow-lg">
+                        <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:100%;"><?= htmlspecialchars($value['keterangan'])?></h3>
+                        <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:120%;">Click Me</p>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
         <h2 class="p-0 m-4 mt-5 pb-3 text-center text-warna-primary">
             On Instagram
@@ -141,7 +132,7 @@ if (isset($_SESSION['login'])) {
                 die("Query failed: " . mysqli_error($connect));
             }
             $getTiket = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach($getTiket as $tiket){
+            foreach ($getTiket as $tiket) {
             ?>
                 <div class="mb-5 p-0 text-center position-relative">
                     <a href="ticket.php?tiket=<?= htmlspecialchars($tiket['id']) ?>" class="d-flex text-decoration-none text-orange about rounded-5">
@@ -150,7 +141,7 @@ if (isset($_SESSION['login'])) {
                         <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
                     </a>
                 </div>
-                <?php
+            <?php
             }
             ?>
         </div>
