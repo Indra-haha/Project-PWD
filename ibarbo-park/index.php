@@ -2,9 +2,9 @@
 session_start();
 require_once('../server/koneksi.php');
 if (isset($_SESSION['login'])) {
+    header('Location: ../server/admin.php');
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

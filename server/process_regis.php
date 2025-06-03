@@ -16,7 +16,7 @@ $queryChecking = "SELECT * FROM user WHERE username = '$username'";
 $result = $connect->query($queryChecking);
 if ($result->num_rows > 0) {
     echo "<script> alert('Username sudah terdaftar!'); 
-    window.location.href='../loginUser.php';</script>";
+    window.location.href='../ibarbo-park/loginUser.php';</script>";
 } else {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $queryInsert = "INSERT INTO user (username, password, nama, telepon) VALUES ('$username', '$hashed_password', '$name', '$nomor_hp')";

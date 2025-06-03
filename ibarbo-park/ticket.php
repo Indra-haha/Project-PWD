@@ -25,12 +25,12 @@
         <div class="d-flex flex-wrap justify-content-center align-items-center p-5 rounded-5 mx-5" style="width:100%;max-width:1200px;">
             <?php
             if (!isset($_GET) || empty($_GET)) {
-                $query = "SELECT id, gambar FROM tiket";
+                $query = "SELECT jenisTiket, gambar FROM tiket";
                 $result = mysqli_query($connect, $query);
                 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 foreach ($data as $d) {
             ?>
-                    <img src="data:image/jpeg;base64,<?= base64_encode($d['gambar']) ?>" alt="<?= $d['id'] ?>" style="width:500px;hight:100%;" class="rounded-5 shadow-lg m-3">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($d['gambar']) ?>" alt="<?= $d['jenisTiket'] ?>" style="width:500px;hight:100%;" class="rounded-5 shadow-lg m-3">
 
                 <?php } ?>
         </div>
@@ -38,7 +38,7 @@
             } else { ?>
         <div class="d-flex flex-wrap justify-content-center align-items-center p-5 rounded-5 column-gap-4" style="width:100%;">
             <?php
-                $query = "SELECT gambar, hargaWeekday, hargaWeekend FROM tiket WHERE id = '{$_GET['tiket']}'";
+                $query = "SELECT gambar, hargaWeekday, hargaWeekend FROM tiket WHERE jenisTiket = '{$_GET['tiket']}'";
                 $result = mysqli_query($connect, $query);
                 $data = mysqli_fetch_assoc($result);
             ?>

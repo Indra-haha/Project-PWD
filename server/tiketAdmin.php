@@ -51,14 +51,14 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
 
             ?>
                 <tr class="my-5 align-items-center justify-content-center">
-                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['id']) ?></td>
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['jenisTiket']) ?></td>
                     <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['hargaWeekday']) ?></td>
-                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['hargaWeekday']) ?></td>
+                    <td class="text-center px-2 align-middle"><?= htmlspecialchars($value['hargaWeekend']) ?></td>
                     <td class="text-center px-2 align-middle"><img src="data:image/jpeg;base64,<?= base64_encode($value['gambar']) ?>" alt="Gambar" width="100"></td>
                     <td class="px-2 align-middle font-15justify-content-center">
                         <form action="form_edit.php" method="POST">
                             <input type="hidden" name="tabel" value="tiket">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['jenisTiket']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-edit.svg" alt="edit" class="p-2">
                             </button>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
                     <td class="px-2 align-middle justify-content-center">
                         <form action="process_hapus.php" method="POST">
                             <input type="hidden" name="tabel" value="tiket">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['id']) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($value['jenisTiket']) ?>">
                             <button type="submit" class="admin-buttonUbah d-block px-2 p-2 border-0 bg-transparent" style="height:100%;">
                                 <img src="../ibarbo-park/images/logo-remove.svg" alt="remove" class="p-2">
                             </button>

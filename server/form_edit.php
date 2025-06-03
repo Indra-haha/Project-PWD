@@ -35,7 +35,7 @@ $id = isset($_POST['id']) ? $_POST['id'] : '';
             <?php
             $namaPrimaryTabel = [
                 'desdes' => 'nama',
-                'tiket' => 'id',
+                'tiket' => 'jenisTiket',
                 'fasilitasumum' => 'id',
                 'fasilitascombo' => 'id',
                 'gamdes' => 'id'
@@ -70,25 +70,56 @@ $id = isset($_POST['id']) ? $_POST['id'] : '';
                 <?php
                 $query = "DESC {$_POST['tabel']}";
                 $result = mysqli_query($connect, $query);
+                $namaPrimaryTabel = [
+                    'desdes' => 'kode',
+                    'tiket' => 'jenisTiket',
+                    'fasilitasumum' => 'id',
+                    'fasilitascombo' => 'id',
+                    'gamdes' => 'id'
+                ];
+                $queryValue = "SELECT * FROM {$_POST['tabel']} WHERE {$namaPrimaryTabel[$_POST['tabel']]} = '{$_POST['id']}'";
+                $resultValue = mysqli_query($connect, $queryValue);
+                $resultValueFetch = mysqli_fetch_assoc($resultValue);
                 while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row['Field'] == 'id' || $row['Field'] == 'kode') {
-                        $type = 'number';
+                    if ($row['Field'] == 'id' || $row['Field'] == 'kode' || $row['Field'] == 'jenisTiket') {
+                        $type = 'hidden';
+                ?>
+                        <input type="<?= $type ?>" name="id" placeholder="Enter" class="form-control p-2" value="<?= htmlspecialchars($_POST['id']) ?>">
+
+                    <?php
                     } else if ($row['Field'] == 'gambar') {
                         $type = 'file';
+                    ?>
+                        <div class="d-block mx-3 my-3">
+                            <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                            <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2" >
+                        </div>
+                    <?php
                     } else if ($row['Field'] == 'deskripsi') {
                         $type = 'textarea';
-                    } else if ($row['Field'] == 'id' || $row['Field'] == 'kode') {
-                        $type = 'hidden';
+                    ?>
+                        <div class="d-block mx-3 my-3">
+                            <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                            <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2" >
+                        </div>
+                    <?php
+                    } else if ($row['Field'] == 'hargaWeekend' || $row['Field'] == 'hargaWeekday') {
+                        $type = 'number';
+                    ?>
+                        <div class="d-block mx-3 my-3">
+                            <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                            <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2">
+                        </div>
+                    <?php
                     } else {
                         $type = 'text';
-                    }
-                ?>
-                    <div class="d-block mx-3 my-3">
-                        <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
-                        <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2">
-                    </div>
-
+                    ?>
+                        <div class="d-block mx-3 my-3">
+                            <label for="<?= htmlspecialchars($row['Field']) ?>" class="text-capitalize fw-semibold my-3 mx-2"><?= htmlspecialchars($row['Field']) ?></label>
+                            <input type="<?= $type ?>" name="<?= htmlspecialchars($row['Field']) ?>" placeholder="Enter" class="form-control p-2">
+                        </div>
                 <?php
+                    }
                 }
                 ?>
                 <div class="d-flex justify-content-around align-items-center my-5">

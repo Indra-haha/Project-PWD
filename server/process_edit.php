@@ -2,46 +2,85 @@
 session_start();
 require_once('../server/koneksi.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $namaPrimaryTabel = [
-        'desdes' => 'kode',
-        'tiket' => 'id',
+        'desdes' => 'nama',
+        'tiket' => 'jenisTiket',
         'fasilitasumum' => 'id',
         'fasilitascombo' => 'id',
         'gamdes' => 'id'
     ];
 
-    if (!isset($_POST['tabel']) || !array_key_exists($_POST['tabel'], $namaPrimaryTabel)) {
-        die("❌ Invalid table specified.");
+    $numericPrimaryKeys = ['id']; // Kolom primary key bertipe numeric
+
+    $tabel = $_POST['tabel'] ?? null;
+    $id = $_POST['id'] ?? null;
+
+    if (!$tabel || !isset($namaPrimaryTabel[$tabel])) {
+        die("❌ Tabel tidak valid.");
     }
 
-
-    if (!isset($_POST['idStrong'])) {
-        die("❌ No ID specified for update.");
+    if (!$id) {
+        die("❌ ID tidak ditentukan.");
     }
 
-    $setParts = [];
+    $primaryKey = $namaPrimaryTabel[$tabel];
+
+    // Buat klausa WHERE sesuai tipe primary key (numeric atau string)
+    if (in_array($primaryKey, $numericPrimaryKeys)) {
+        $id = (int)$id; // cast ke int kalau numeric
+        $whereClause = "`$primaryKey` = $id";
+    } else {
+        $id = mysqli_real_escape_string($connect, $id);
+        $whereClause = "`$primaryKey` = '$id'";
+    }
+
+    $setClause = '';
+    $first = true;
+
     foreach ($_POST as $key => $value) {
-        if ($key !== 'tabel' && $key !== 'id' && $value !== null) {
-            $safeKey = mysqli_real_escape_string($connect, $key);
-            $safeValue = mysqli_real_escape_string($connect, $value);
-            $setParts[] = "`$safeKey` = '$safeValue'";
-            $setClause = implode(", ", $setParts);
+        if (in_array($key, ['tabel', 'id'])) {
+            continue;
+        }
+
+        if (trim($value) === '') {
+            continue;
+        }
+
+        // Escape string untuk query
+        $escapedValue = mysqli_real_escape_string($connect, $value);
+
+        if ($first) {
+            $setClause .= "`$key` = '$escapedValue'";
+            $first = false;
+        } else {
+            $setClause .= ", `$key` = '$escapedValue'";
         }
     }
 
-    if (empty($setParts)) {
-        die("❌ No data to update.");
+    // Upload gambar, simpan binary langsung ke DB (tipe BLOB)
+    if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === 0) {
+        $gambarData = file_get_contents($_FILES['gambar']['tmp_name']);
+        $gambarEscaped = mysqli_real_escape_string($connect, $gambarData);
+        if (!$first) {
+            $setClause .= ", `gambar` = '$gambarEscaped'";
+        } else {
+            $setClause .= "`gambar` = '$gambarEscaped'";
+            $first = false;
+        }
     }
 
-    $setClause = implode(", ", $setParts);
+    if ($setClause === '') {
+        die("❌ Tidak ada data yang diperbarui.");
+    }
 
-    $query = "UPDATE {$_POST['tabel']} SET $setClause WHERE {$namaPrimaryTabel[$_POST['tabel']]} = '{$_POST['idStrong']}'";
+    $query = "UPDATE `$tabel` SET $setClause WHERE $whereClause";
 
     if (mysqli_query($connect, $query)) {
         header('Location: index.php');
-        exit;
+        exit();
     } else {
-        echo "❌ Gagal memperbarui data: " . mysqli_error($connect);
+        echo "❌ Gagal update data: " . mysqli_error($connect);
     }
 }
+?>

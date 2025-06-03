@@ -18,7 +18,6 @@ if ($result->num_rows > 0) {
             echo "<script>alert('Login berhasil');</script>";
             header('Location: ../server/');
         } else {
-            $_SESSION['role'] = 'user';
             echo "<script>alert('Fitur Pemesanan Segera Datang!!!');
         window.location.href='../ibarbo-park/ticket.php';</script>";
         }

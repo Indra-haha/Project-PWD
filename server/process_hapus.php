@@ -8,7 +8,7 @@ if (!isset($_SESSION['login']) || $_SESSION['role'] != 'admin') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $namaPrimaryTabel = [
         'desdes' => 'kode',
-        'tiket' => 'id',
+        'tiket' => 'jenisTiket',
         'fasilitasumum' => 'id',
         'fasilitascombo' => 'id',
         'gamdes' => 'id'
