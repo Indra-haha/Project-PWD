@@ -46,8 +46,6 @@ if (isset($_SESSION['login'])) {
             $result = mysqli_query($connect, $query);
             $resultFix = mysqli_fetch_all($result, MYSQLI_ASSOC);
             foreach ($resultFix as $value) {
-                $image_data = $value['gambar'];  // Assuming 'gambar' is the binary data
-                $image_type = "image/jpeg";
             ?>
                 <div class="m-0 p-0 text-center position-relative">
                     <a href="detail.php?detail=<?= htmlspecialchars($value['id'])?>" class="d-flex text-decoration-none text-orange about rounded-circle">
@@ -135,9 +133,9 @@ if (isset($_SESSION['login'])) {
             foreach ($getTiket as $tiket) {
             ?>
                 <div class="mb-5 p-0 text-center position-relative">
-                    <a href="ticket.php?tiket=<?= htmlspecialchars($tiket['id']) ?>" class="d-flex text-decoration-none text-orange about rounded-5">
-                        <img src="data:image/jpeg;base64,<?= base64_encode($tiket['gambar']) ?>" alt="tiket-<?= htmlspecialchars($tiket['id']) ?>" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
-                        <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;"><?= htmlspecialchars($tiket['id']) ?></h3>
+                    <a href="ticket.php?tiket=<?= htmlspecialchars($tiket['jenisTiket']) ?>" class="d-flex text-decoration-none text-orange about rounded-5">
+                        <img src="data:image/jpeg;base64,<?= base64_encode($tiket['gambar']) ?>" alt="tiket-<?= htmlspecialchars($tiket['jenisTiket']) ?>" style="width:auto;height:200px;" class="d-flex rounded-5 shadow-lg">
+                        <h3 class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:140%;"><?= htmlspecialchars($tiket['jenisTiket']) ?></h3>
                         <p class="p-2 position-absolute justify-content-center d-flex align-items-center" style="width:100%;height:170%;">Click For Order</p>
                     </a>
                 </div>
