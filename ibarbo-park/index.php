@@ -46,6 +46,8 @@ if (isset($_SESSION['login'])) {
             $result = mysqli_query($connect, $query);
             $resultFix = mysqli_fetch_all($result, MYSQLI_ASSOC);
             foreach ($resultFix as $value) {
+                $image_data = $value['gambar'];  // Assuming 'gambar' is the binary data
+                $image_type = "image/jpeg";
             ?>
                 <div class="m-0 p-0 text-center position-relative">
                     <a href="detail.php?detail=<?= htmlspecialchars($value['id'])?>" class="d-flex text-decoration-none text-orange about rounded-circle">

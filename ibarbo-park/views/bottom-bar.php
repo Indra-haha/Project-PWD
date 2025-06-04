@@ -44,7 +44,7 @@
         </div>
         <div class="d-block ">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3258.9456731516007!2d110.3370105740479!3d-7.685135576086596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5f40b8f7af93%3A0x2d4d22c7100ea043!2sIbarbo%20Park!5e1!3m2!1sid!2sid!4v1745849620461!5m2!1sid!2sid "
-                allowfullscreen=" " title="" "Ibarbo Park Location Map" referrerpolicy="no-referrer-when-downgrade "></iframe>
+                allowfullscreen=" "  referrerpolicy="no-referrer-when-downgrade "></iframe>
         </div>
     </div>
     <div class="text-center p-3 shadow-lg " style="width:100%;height:auto; ">
