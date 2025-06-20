@@ -44,7 +44,7 @@ $getData = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div id="arrow2" class="arrow-top"></div>
                         <ul class="nav d-block p-0 m-0 box-c d-block">
                             <?php
-                            $query = "SELECT jenisTiket FROM tiket";
+                            $query = "SELECT id FROM tiket";
                             $result = mysqli_query($connect, $query);
                             if (!$result) {
                                 die("Query failed: " . mysqli_error($connect));
@@ -53,7 +53,7 @@ $getData = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             foreach ($getTiket as $value) {
                             ?>
                             <li id="sub-menu-tik" class="p-2 px-3">
-                                <a href="ticket.php?tiket=<?= htmlspecialchars($value['jenisTiket']) ?>" class="text-decoration-none"><?= htmlspecialchars($value['jenisTiket']) ?></a>
+                                <a href="ticket.php?tiket=<?= htmlspecialchars($value['id']) ?>" class="text-decoration-none"><?= htmlspecialchars($value['id']) ?></a>
                             </li>
                             <?php } ?>
                         </ul>
